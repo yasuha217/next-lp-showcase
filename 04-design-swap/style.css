@@ -1,0 +1,1345 @@
+@charset "UTF-8";
+
+/* ========================================
+   CSS Variables (from color_tokens / background_tokens)
+   買取大吉デザイン × NEXT LP構造
+   ======================================== */
+:root {
+    /* brand_colors (C.colors.primary / C.colors.text / C.colors.border) */
+    --brand-heading-band: #0F0068;
+    --brand-heading-on-light: #0F0068;
+    --brand-heading-on-dark: #ffffff;
+    --brand-border: #0F0068;
+    --brand-sub-text: #666666;
+    --brand-body-text: #333333;
+    --brand-body-on-dark: #ffffff;
+    --brand-body-on-dark-muted: rgba(255, 255, 255, 0.8);
+
+    /* section_backgrounds (C.colors.background) */
+    --bg-white: #ffffff;
+    --bg-light-gray: #f5f5f5;
+    --bg-cream: #fef9e7;
+    --bg-gold-pattern: #f5e6a3;
+    --bg-dark: #021B30;
+    --bg-header: #10016A;
+
+    /* accent_colors (C.colors.accent / C.colors.highlight / C.colors.secondary) */
+    --accent-red: #AC272D;
+    --accent-red-light: #DB5858;
+    --accent-marker: #EDED62;
+    --accent-gold: #d4a84b;
+    --accent-gold-light: #e8c36b;
+    --accent-gold-dark: #b8923f;
+
+    /* cta_colors (C.cta_design.primary_button / secondary_button) */
+    --cta-bg: linear-gradient(90deg, #f5a623 0%, #e07828 100%);
+    --cta-bg-main: #f28c38;
+    --cta-text: #ffffff;
+    --cta-shadow: 0 4px 12px rgba(232, 120, 40, 0.3);
+    --cta-secondary-bg: #0F0068;
+    --cta-secondary-text: #ffffff;
+
+    /* Typography (font_loading) */
+    --font-ja: 'Noto Sans JP', Helvetica Neue, Helvetica, Hiragino Sans, Hiragino Kaku Gothic ProN, Arial, Yu Gothic, Meiryo, sans-serif;
+    --font-en: 'Noto Serif JP', serif;
+    --font-number: 'Heebo', sans-serif;
+
+    /* Layout (responsive) */
+    --max-width: 1200px;
+    --base-size: 16;
+    --base-width: 375;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --base-size: 18;
+        --base-width: 1440;
+    }
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: clamp(10px, calc(16 / 375 * 100vw), 18px);
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: var(--font-ja);
+    font-weight: 500;
+    line-height: 1.66;
+    letter-spacing: 0.1em;
+    color: var(--brand-body-text);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "palt";
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* Layout */
+.l-inner {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.p-section {
+    padding: 64px 0;
+}
+
+/* ========================================
+   Background Patterns
+   ======================================== */
+.bg-navy-gradient {
+    background: linear-gradient(180deg, #021B30 0%, #0F0068 100%);
+}
+
+.bg-navy-gradient-rev {
+    background: linear-gradient(180deg, #0F0068 0%, #021B30 100%);
+}
+
+.bg-solid-white {
+    background: #ffffff;
+}
+
+.bg-solid-gray {
+    background: #f5f5f5;
+}
+
+.bg-gold-texture {
+    background: linear-gradient(135deg, #fef9e7 0%, #f5e6a3 50%, #fef9e7 100%);
+}
+
+/* Seigaiha Pattern - SVG based */
+.bg-seigaiha-dark {
+    position: relative;
+    background: linear-gradient(180deg, #021B30 0%, #0F0068 100%);
+}
+
+.bg-seigaiha-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1' d='M0 30 C15 30 15 0 30 0 C45 0 45 30 60 30 M-30 30 C-15 30 -15 0 0 0 C15 0 15 30 30 30 M30 30 C45 30 45 0 60 0 C75 0 75 30 90 30'/%3E%3C/svg%3E");
+    background-size: 60px 30px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-seigaiha-dark>* {
+    position: relative;
+    z-index: 1;
+}
+
+.bg-seigaiha-light {
+    position: relative;
+    background: #ffffff;
+}
+
+.bg-seigaiha-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath fill='none' stroke='rgba(100,180,230,0.10)' stroke-width='1' d='M0 30 C15 30 15 0 30 0 C45 0 45 30 60 30 M-30 30 C-15 30 -15 0 0 0 C15 0 15 30 30 30 M30 30 C45 30 45 0 60 0 C75 0 75 30 90 30'/%3E%3C/svg%3E");
+    background-size: 60px 30px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-seigaiha-light>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   Section Headings (P-05)
+   ======================================== */
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading__sub {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 8px;
+}
+
+.section-heading__main {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--brand-heading-on-light);
+    line-height: 1.4;
+}
+
+.section-heading__main--underline {
+    display: inline-block;
+    border-bottom: 3px solid var(--brand-border);
+    padding-bottom: 8px;
+}
+
+.section-heading__main--light {
+    color: var(--brand-heading-on-dark);
+}
+
+/* ========================================
+   CTA Buttons (P-01)
+   ======================================== */
+.cta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .cta-block {
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+    }
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 320px;
+    min-height: 60px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.cta-btn--primary {
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    box-shadow: var(--cta-shadow);
+}
+
+.cta-btn--primary:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.cta-btn--secondary {
+    background: var(--cta-secondary-bg);
+    color: var(--cta-secondary-text);
+}
+
+.cta-btn--secondary:hover {
+    background: #1a0a8f;
+}
+
+.cta-btn__arrow {
+    font-size: 14px;
+}
+
+.cta-micro {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.cta-item {
+    text-align: center;
+}
+
+/* ========================================
+   Badge Medal (P-02)
+   ======================================== */
+.badge-medal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(180deg, #e8c36b 0%, #d4a84b 50%, #b8923f 100%);
+    border: 3px solid #b8923f;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding: 12px;
+}
+
+.badge-medal--lg {
+    width: 140px;
+    height: 140px;
+}
+
+.badge-medal--sm {
+    width: 100px;
+    height: 100px;
+}
+
+.badge-medal__label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--brand-heading-band);
+    line-height: 1.3;
+}
+
+.badge-medal__value {
+    font-family: var(--font-number);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 900;
+    color: var(--brand-heading-band);
+    line-height: 1;
+}
+
+/* ========================================
+   Glossy Number (P-07)
+   ======================================== */
+.glossy-number {
+    font-family: var(--font-number);
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glossy-number--hero {
+    font-size: clamp(48px, 12vw, 100px);
+    color: #ffffff;
+}
+
+.glossy-number--on-light {
+    font-size: clamp(28px, 5vw, 48px);
+    color: var(--brand-heading-band);
+}
+
+.glossy-number--table {
+    font-size: clamp(24px, 5vw, 40px);
+    color: var(--brand-heading-band);
+}
+
+.glossy-number--gold {
+    font-size: clamp(28px, 5vw, 48px);
+    color: var(--brand-heading-band);
+}
+
+/* ========================================
+   Card Bordered (P-03)
+   ======================================== */
+.card-bordered {
+    border: 3px solid var(--brand-border);
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.card-bordered__header {
+    background: var(--brand-heading-band);
+    color: #fff;
+    padding: 12px 16px;
+    font-weight: 700;
+}
+
+.card-bordered__body {
+    background: #fff;
+    padding: 16px;
+    color: var(--brand-body-text);
+}
+
+/* ========================================
+   Point Label (P-06) & Tag Label (P-25)
+   ======================================== */
+.point-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--brand-heading-band);
+    color: #fff;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.point-label__number {
+    font-family: var(--font-number);
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.tag-label {
+    display: inline-block;
+    background: var(--brand-heading-band);
+    color: #fff;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.tag-label--accent {
+    background: var(--accent-red);
+}
+
+/* ========================================
+   Text Decorations (P-09 marker, P-10 underline)
+   ======================================== */
+.u-marker {
+    background: linear-gradient(transparent 60%, var(--accent-marker) 60%);
+}
+
+.u-underline-red {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-red);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+}
+
+/* ========================================
+   FV (sec_01)
+   ======================================== */
+.p-fv {
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.p-fv__content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.p-fv__balloon {
+    display: inline-block;
+    background: #fff;
+    color: var(--brand-heading-band);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.p-fv__balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 24px;
+    border: 8px solid transparent;
+    border-top-color: #fff;
+}
+
+.p-fv__main-copy {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 24px;
+}
+
+.p-fv__features {
+    margin-bottom: 32px;
+}
+
+.p-fv__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.p-fv__features li::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.p-fv__badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-items: center;
+}
+
+@media (max-width: 767px) {
+    .p-fv__badges {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .p-fv__badges .badge-medal:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+    }
+}
+
+.p-fv__notes {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--brand-body-on-dark-muted);
+}
+
+/* ========================================
+   Achievement Badge Section (sec_03)
+   ======================================== */
+.c-achievement {
+    text-align: center;
+}
+
+.c-achievement__main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.c-achievement__sub {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.c-achievement__note {
+    font-size: 12px;
+    color: var(--brand-sub-text);
+    line-height: 1.8;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Logo Row (sec_04)
+   ======================================== */
+.c-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-logos__item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ========================================
+   Challenge Section (sec_05)
+   ======================================== */
+.c-challenge__cards {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .c-challenge__cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-challenge__transition {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.c-challenge__transition-label {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: clamp(18px, 4vw, 28px);
+    font-weight: 700;
+    color: var(--brand-heading-band);
+}
+
+.c-challenge__transition-text {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+    color: var(--brand-body-text);
+    margin-top: 16px;
+    line-height: 1.8;
+}
+
+.c-challenge__emphasis {
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--brand-heading-band);
+    text-align: center;
+    margin-top: 32px;
+}
+
+.c-challenge__points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.c-challenge__point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.c-challenge__point::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-gold);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* ========================================
+   Timeline (sec_06)
+   ======================================== */
+.vertical-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border-left: 4px solid var(--brand-border);
+    background: #fff;
+}
+
+.timeline-item--user {
+    border-left-color: var(--accent-red);
+    background: rgba(172, 39, 45, 0.03);
+}
+
+.timeline-item--access {
+    border-left-color: var(--brand-border);
+    background: rgba(15, 0, 104, 0.03);
+}
+
+.timeline-marker {
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-heading-band);
+    margin: 8px 0;
+}
+
+.timeline-desc {
+    color: var(--brand-body-text);
+    line-height: 1.8;
+}
+
+.timeline-list {
+    margin-top: 8px;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+}
+
+.timeline-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--brand-heading-band);
+}
+
+.c-work__scale {
+    background: linear-gradient(135deg, #fef9e7 0%, #f5e6a3 50%, #fef9e7 100%);
+    padding: 32px 24px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 700;
+    color: var(--brand-heading-band);
+}
+
+.c-work__note {
+    font-size: 12px;
+    color: var(--brand-sub-text);
+    margin-top: 24px;
+    text-align: center;
+}
+
+/* ========================================
+   Zero Inventory (sec_07)
+   ======================================== */
+.c-zero-risk {
+    text-align: center;
+    color: #fff;
+}
+
+.c-zero-risk__intro {
+    font-size: 16px;
+    color: var(--brand-body-on-dark-muted);
+    margin-bottom: 8px;
+}
+
+.c-zero-risk__sub {
+    font-size: clamp(18px, 3vw, 24px);
+    margin-bottom: 16px;
+}
+
+.c-zero-risk__headline {
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.c-zero-risk__desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   FAQ Static (sec_08)
+   ======================================== */
+.c-faq-static {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-faq-static {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.c-faq-static__item .card-bordered__header {
+    font-size: 14px;
+}
+
+.c-faq-static__item .card-bordered__body {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   Company Intro (sec_09)
+   ======================================== */
+.c-company {
+    text-align: center;
+    color: #fff;
+}
+
+.c-company__desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Testimonials (sec_10)
+   ======================================== */
+.c-testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.c-testimonial {
+    padding: 24px;
+}
+
+.c-testimonial__label {
+    margin-bottom: 16px;
+}
+
+.c-testimonial__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-heading-band);
+    margin-bottom: 8px;
+}
+
+.c-testimonial__profile {
+    font-size: 14px;
+    color: var(--brand-sub-text);
+    margin-bottom: 16px;
+}
+
+.c-testimonial__body {
+    line-height: 1.8;
+}
+
+.c-testimonial__disclaimer {
+    font-size: 12px;
+    color: var(--brand-sub-text);
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* ========================================
+   CTA Seminar (sec_11, sec_17)
+   ======================================== */
+.c-cta-seminar {
+    text-align: center;
+    color: #fff;
+}
+
+.c-cta-seminar__benefits {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    margin: 32px 0;
+}
+
+@media (min-width: 768px) {
+    .c-cta-seminar__benefits {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-cta-seminar__benefit {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+/* ========================================
+   Reason Cards (sec_13, sec_14)
+   ======================================== */
+.c-reason-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.c-reason-intro__label {
+    font-size: 18px;
+    color: var(--accent-red);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.c-reason-intro__headline {
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    color: var(--brand-heading-band);
+}
+
+.c-reason-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-reason-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-reason-card {
+    overflow: hidden;
+}
+
+.c-reason-card .card-bordered__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+}
+
+.c-reason-card__number .glossy-number {
+    font-size: 32px;
+}
+
+.c-reason-card__title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.c-reason-card .card-bordered__body {
+    text-align: center;
+}
+
+.c-reason-card__value {
+    margin: 16px 0;
+}
+
+/* ========================================
+   Model Case (sec_15)
+   ======================================== */
+.c-model {
+    margin-bottom: 48px;
+}
+
+.c-model__comment {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 0 auto 32px;
+    position: relative;
+}
+
+.c-model__comment::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 12px solid transparent;
+    border-top-color: #fff;
+}
+
+.c-model__cards {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-model__cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-model__card {
+    text-align: center;
+}
+
+.c-model__card .card-bordered__header {
+    font-size: 14px;
+}
+
+.c-model__card .card-bordered__body {
+    padding: 24px;
+}
+
+.c-model__note {
+    font-size: 12px;
+    color: var(--brand-sub-text);
+    text-align: center;
+    margin-top: 24px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   Support (sec_16)
+   ======================================== */
+.c-support-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-support-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.c-support__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-heading-band);
+    margin-bottom: 16px;
+}
+
+.c-support__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.c-support__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.c-support__item::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--brand-heading-band);
+    border-radius: 2px;
+}
+
+/* ========================================
+   FAQ Accordion (sec_19)
+   ======================================== */
+.c-faq {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.c-faq__item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.c-faq__q {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+.c-faq__q::before {
+    content: "Q";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--brand-heading-band);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.c-faq__q-text {
+    font-weight: 700;
+    line-height: 1.5;
+    padding-top: 4px;
+    flex: 1;
+}
+
+.c-faq__q-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.c-faq__a {
+    display: none;
+    padding: 0 0 20px 48px;
+}
+
+.c-faq__a::before {
+    content: "A";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-gold);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-right: 16px;
+    vertical-align: top;
+}
+
+.c-faq__a-text {
+    display: inline;
+    line-height: 1.8;
+}
+
+.c-faq__item.is-open .c-faq__a {
+    display: block;
+}
+
+.c-faq__item.is-open .c-faq__q-icon {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.l-footer {
+    background: #021B30;
+    color: #fff;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.l-footer__logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.l-footer__info {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.l-footer__links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.l-footer__links a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.l-footer__links a:hover {
+    color: #fff;
+}
+
+.l-footer__copy {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========================================
+   SP Fixed Bar
+   ======================================== */
+.l-fixed-bar {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .l-fixed-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 12px 16px;
+        gap: 12px;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .l-fixed-bar.is-hide {
+        transform: translateY(100%);
+    }
+
+    .l-fixed-bar__btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .l-fixed-bar__btn--primary {
+        background: var(--cta-bg);
+        color: #fff;
+    }
+
+    .l-fixed-bar__btn--secondary {
+        background: var(--cta-secondary-bg);
+        color: #fff;
+    }
+}
+
+/* ========================================
+   Header
+   ======================================== */
+.l-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.l-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+}
+
+.l-header__logo {
+    font-family: var(--font-number);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--brand-heading-band);
+    letter-spacing: 0.05em;
+}
+
+.l-header__nav {
+    display: none;
+    align-items: center;
+    gap: 32px;
+}
+
+@media (min-width: 768px) {
+    .l-header__nav {
+        display: flex;
+    }
+}
+
+.l-header__nav-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand-body-text);
+    transition: color 0.2s;
+}
+
+.l-header__nav-item:hover {
+    color: var(--brand-heading-band);
+}
+
+.l-header__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+@media (min-width: 768px) {
+    .l-header__hamburger {
+        display: none;
+    }
+}
+
+.l-header__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--brand-heading-band);
+    transition: all 0.3s;
+}
+
+.l-header__hamburger.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.l-header__hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.l-header__hamburger.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* SP Nav overlay */
+.l-header__nav.is-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 40px 24px;
+    gap: 24px;
+    z-index: 199;
+}
+
+.l-header__nav.is-open .l-header__nav-item {
+    font-size: 18px;
+}
+
+/* Header spacer */
+.p-fv {
+    padding-top: 64px;
+}
+
+/* ========================================
+   Model Case sub_note
+   ======================================== */
+.c-model__sub-note {
+    font-size: 12px;
+    color: var(--brand-sub-text);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* Utilities */
+.u-text-center {
+    text-align: center;
+}
+
+.u-mt-40 {
+    margin-top: 40px;
+}
+
+.u-mb-0 {
+    margin-bottom: 0 !important;
+}

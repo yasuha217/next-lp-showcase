@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXT LP Preview</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
+.container{max-width:720px;margin:0 auto;padding:40px 20px}
+h1{font-size:24px;font-weight:700;margin-bottom:8px}
+.sub{font-size:14px;color:#888;margin-bottom:32px}
+.card{display:block;background:#fff;border-radius:8px;padding:24px;margin-bottom:16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.card-num{font-size:12px;color:#888;margin-bottom:4px}
+.card-title{font-size:18px;font-weight:700;color:#0F0068;margin-bottom:4px}
+.card-desc{font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>NEXT LP Preview</h1>
+  <p class="sub">パイプライン生成物一覧 — 2026-02-02</p>
+
+  <a class="card" href="01-unified/">
+    <div class="card-num">01</div>
+    <div class="card-title">ワイヤー構造 + デザイン抽出 → 統合</div>
+    <div class="card-desc">通常フロー B → C → D。12セクション、買取大吉デザイン適用。</div>
+  </a>
+
+  <a class="card" href="02-structure/">
+    <div class="card-num">02</div>
+    <div class="card-title">LP から構造のみ抽出</div>
+    <div class="card-desc">既存 LP のセクション構造を B で抽出し、そのまま生成。</div>
+  </a>
+
+  <a class="card" href="03-cross-spec/">
+    <div class="card-num">03</div>
+    <div class="card-title">LP から構造のみ抽出②</div>
+    <div class="card-desc">クロス LP パターン。構造 = 参考 LP × コンテンツ = NEXT。</div>
+  </a>
+
+  <a class="card" href="04-design-swap/">
+    <div class="card-num">04</div>
+    <div class="card-title">参考 LP からデザインのみ抽出</div>
+    <div class="card-desc">デザインスワップ。構造+コンテンツ = 既存 LP × デザイン = 買取大吉。19セクション。</div>
+  </a>
+</div>
+</body>
+</html>

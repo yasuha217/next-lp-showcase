@@ -1,0 +1,874 @@
+@charset "UTF-8";
+
+/* ========================================
+   D Cross Spec CSS Variables (color_tokens)
+   ======================================== */
+:root {
+    /* brand */
+    --brand-heading-band: #204d83;
+    --brand-heading-text-on-light: #204d83;
+    --brand-heading-text-on-dark: #ffffff;
+    --brand-border: #ffd299;
+    --brand-sub-text: #9e9e9e;
+    /* section backgrounds */
+    --section-bg: #ffffff;
+    /* accent */
+    --accent-primary: #ff7e15;
+    --accent-highlight: #ff6600;
+    --accent-secondary: #fc843d;
+    /* cta */
+    --cta-bg: #c40019;
+    --cta-text: #ffffff;
+    --cta-hover-bg: #ffffff;
+    --cta-border: #800000;
+    --cta-secondary-bg: #14539d;
+    --cta-secondary-text: #ffffff;
+    /* text */
+    --text-body: #181010;
+    --text-body-on-dark: #ffffff;
+    --text-muted: #9e9e9e;
+
+    /* Fonts */
+    --font-ja: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', Meiryo, sans-serif;
+    --font-en: 'Oswald', sans-serif;
+    --font-number: 'DIN Alternate', 'URW DIN', sans-serif;
+
+    /* Layout */
+    --max-width: 1320px;
+    --border-radius-infinity: 9999px;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+body {
+    font-family: var(--font-ja);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-body);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* ========================================
+   Layout
+   ======================================== */
+.l-inner {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.p-section {
+    padding: 60px 20px;
+}
+
+@media (min-width: 768px) {
+    .p-section {
+        padding: 80px 20px;
+    }
+}
+
+/* ========================================
+   Section Backgrounds (background_tokens)
+   ======================================== */
+
+/* sec_01: FV - orange gradient */
+.bg-sec-01 {
+    background: linear-gradient(282.92deg, #ffea60 -1.93%, #fb753f 98.19%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-sec-01::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    background: #fff;
+    clip-path: polygon(0 77%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* sec_02: white */
+.bg-sec-02 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+/* sec_03: light gray + diagonal pattern */
+.bg-sec-03 {
+    background: #f2f2f2;
+    color: var(--text-body);
+    position: relative;
+}
+
+/* sec_04: white */
+.bg-sec-04 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+/* sec_05: blue (dark) */
+.bg-sec-05 {
+    background: #14539d;
+    color: #fff;
+}
+
+/* sec_06: light gray */
+.bg-sec-06 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+/* sec_07: dark blue */
+.bg-sec-07 {
+    background: #204d83;
+    color: #fff;
+}
+
+/* sec_08: light gray */
+.bg-sec-08 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+/* sec_09: white */
+.bg-sec-09 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+/* sec_10: light gray */
+.bg-sec-10 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+/* sec_11: white */
+.bg-sec-11 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+/* sec_12: blue (dark) + pattern */
+.bg-sec-12 {
+    background: #14539d;
+    color: #fff;
+    position: relative;
+}
+
+/* ========================================
+   Section Headings
+   ======================================== */
+.l-section__title {
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--brand-heading-text-on-light);
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+.l-section__title--light {
+    color: #fff;
+}
+
+.l-section__subtitle {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--text-muted);
+}
+
+.l-section__subtitle--accent {
+    color: var(--accent-secondary);
+    font-weight: 700;
+}
+
+/* ========================================
+   FV (First View) - sec_01
+   ======================================== */
+.p-fv {
+    min-height: auto;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    .p-fv {
+        min-height: 600px;
+        padding-bottom: 0;
+    }
+}
+
+.p-fv__lead {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 20px;
+    font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+    .p-fv__lead {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px 40px;
+    }
+}
+
+.p-fv__content {
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .p-fv__content {
+        padding: 60px 40px;
+        text-align: left;
+        max-width: var(--max-width);
+        margin: 0 auto;
+    }
+}
+
+.p-fv__main-copy {
+    font-size: min(34px, 8.5vw);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .p-fv__main-copy {
+        font-size: min(84px, 5vw);
+    }
+}
+
+.p-fv__sub-copy {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+    .p-fv__sub-copy {
+        font-size: 1.15rem;
+    }
+}
+
+/* FV Badges */
+.p-fv__badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .p-fv__badges {
+        justify-content: flex-start;
+        gap: 16px;
+    }
+}
+
+.p-fv__badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.p-fv__badge-num {
+    font-family: var(--font-number);
+    font-size: clamp(36px, 10vw, 60px);
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    line-height: 1;
+}
+
+.p-fv__badge-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   Company Section (会社紹介) - sec_02
+   ======================================== */
+.c-company-block {
+    margin-bottom: 40px;
+}
+
+.c-company-block__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-on-light);
+    margin-bottom: 12px;
+}
+
+.c-company-block__desc {
+    line-height: 1.8;
+}
+
+/* Media logos */
+.c-media-logos {
+    margin-top: 40px;
+}
+
+.c-media-logos__title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.c-media-logos__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.c-media-logos__item {
+    background: #f5f5f5;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-body);
+}
+
+/* ========================================
+   Challenge Cards - sec_03, sec_06
+   ======================================== */
+.c-challenge {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+    .c-challenge {
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .c-challenge--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.c-challenge__text {
+    flex: 1;
+}
+
+.c-challenge__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-on-light);
+    margin-bottom: 12px;
+}
+
+.c-challenge__desc {
+    line-height: 1.8;
+}
+
+.c-challenge__img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .c-challenge__img {
+        width: 45%;
+        flex-shrink: 0;
+    }
+}
+
+/* ========================================
+   Reason Cards (5つの強み) - sec_04
+   ======================================== */
+.c-reason-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .c-reason-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+.c-reason {
+    background: #fff;
+    border-radius: 4.5px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+    .c-reason {
+        flex: 1 1 calc(33.333% - 20px);
+        min-width: 280px;
+    }
+}
+
+.c-reason__label {
+    display: inline-block;
+    background: #14539d;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: var(--border-radius-infinity);
+    margin-bottom: 16px;
+}
+
+.c-reason__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-on-light);
+    margin-bottom: 12px;
+}
+
+.c-reason__desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.c-reason__highlight {
+    color: var(--accent-highlight);
+    font-weight: 700;
+}
+
+/* ========================================
+   Tax Benefit (節税効果) - sec_05
+   ======================================== */
+.c-tax-card {
+    background: #fff;
+    border: 5px solid var(--brand-border);
+    border-radius: 4px;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.c-tax-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-on-light);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.c-tax-card__item {
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.c-tax-card__item:last-child {
+    border-bottom: none;
+}
+
+.c-tax-card__item-title {
+    font-weight: 700;
+    color: var(--brand-heading-text-on-light);
+    margin-bottom: 8px;
+}
+
+.c-tax-card__item-desc {
+    color: var(--text-body);
+    line-height: 1.7;
+}
+
+/* Comparison Chart */
+.c-comparison {
+    margin: 32px 0;
+}
+
+.c-comparison__title {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+}
+
+.c-comparison__row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .c-comparison__row {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+}
+
+.c-comparison__label {
+    font-weight: 700;
+    color: var(--brand-border);
+    min-width: 80px;
+}
+
+.c-comparison__before {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.c-comparison__arrow {
+    color: var(--brand-border);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.c-comparison__after {
+    flex: 1;
+    padding: 12px 16px;
+    background: var(--brand-border);
+    border-radius: 4px;
+    color: var(--brand-heading-text-on-light);
+    font-weight: 700;
+}
+
+/* ========================================
+   Testimonial (お客様の声) - sec_08, sec_09
+   ======================================== */
+.c-testimonial {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.09);
+}
+
+.c-testimonial__profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.c-testimonial__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    object-fit: cover;
+}
+
+.c-testimonial__name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--brand-heading-text-on-light);
+}
+
+.c-testimonial__label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Story Steps */
+.c-story {
+    margin-top: 24px;
+}
+
+.c-story__step {
+    padding: 16px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.c-story__step:last-child {
+    border-bottom: none;
+}
+
+.c-story__label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.c-story__label--bg {
+    background: #14539d;
+}
+
+.c-story__label--turn {
+    background: var(--accent-secondary);
+}
+
+.c-story__label--result {
+    background: var(--cta-bg);
+}
+
+/* Quote */
+.c-quote {
+    background: #f9f9f9;
+    border-left: 4px solid var(--accent-secondary);
+    padding: 20px 24px;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 24px 0;
+    color: var(--text-body);
+}
+
+/* Flow Diagram */
+.c-flow {
+    margin: 32px 0;
+    text-align: center;
+}
+
+.c-flow__title {
+    color: var(--brand-heading-text-on-light);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.c-flow__diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.c-flow__step {
+    background: #14539d;
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px 24px;
+    min-width: 180px;
+}
+
+.c-flow__arrow {
+    color: var(--accent-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.c-flow__arrow--loop {
+    color: var(--accent-secondary);
+    font-size: 1rem;
+}
+
+/* ========================================
+   FAQ - sec_10 (全展開)
+   ======================================== */
+.c-faq {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.c-faq__item {
+    margin-bottom: 24px;
+}
+
+.c-faq__q {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.c-faq__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.c-faq__icon--q {
+    background: #14539d;
+}
+
+.c-faq__icon--a {
+    background: #FC843D;
+}
+
+.c-faq__q-text {
+    font-weight: 900;
+    line-height: 1.6;
+    padding-top: 10px;
+}
+
+.c-faq__a {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.c-faq__a-text {
+    font-weight: 500;
+    line-height: 1.8;
+    padding-top: 10px;
+}
+
+/* ========================================
+   Company Table - sec_11
+   ======================================== */
+.c-table {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.c-table th,
+.c-table td {
+    padding: 16px;
+    border: 1px solid #e3e3e3;
+    text-align: left;
+}
+
+.c-table th {
+    width: 25%;
+    background: #f7f8fb;
+    font-weight: 700;
+}
+
+/* ========================================
+   CTA Button - sec_12
+   ======================================== */
+.c-cta-section {
+    text-align: center;
+    padding: 60px 20px 80px;
+}
+
+.c-cta-micro {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.c-cta-btn {
+    display: inline-block;
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px 48px;
+    border-radius: var(--border-radius-infinity);
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.14);
+    text-align: center;
+    text-decoration: none;
+    min-height: 64px;
+    min-width: min(421px, 100%);
+    transition: all 0.3s;
+}
+
+.c-cta-btn:hover {
+    background: var(--cta-hover-bg);
+    color: var(--cta-bg);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.l-footer {
+    background: #f2f2f2;
+    color: #8f8f8f;
+    text-align: right;
+    padding: 24px 20px;
+    font-size: 11px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ========================================
+   Utilities
+   ======================================== */
+.u-text-center {
+    text-align: center;
+}
+
+.u-text--light {
+    color: #fff;
+}
+
+.u-mb-0 {
+    margin-bottom: 0 !important;
+}
+
+/* Coming Soon placeholder */
+.c-coming-soon {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Highlight text */
+.u-highlight {
+    color: var(--accent-highlight);
+    font-weight: 700;
+}

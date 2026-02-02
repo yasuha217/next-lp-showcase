@@ -1,0 +1,1177 @@
+@charset "UTF-8";
+
+/* ========================================
+   CSS Variables (color_tokens)
+   ======================================== */
+:root {
+    /* brand */
+    --brand-heading-band: #14539d;
+    --brand-heading-text-light: #204d83;
+    --brand-heading-text-dark: #ffffff;
+    --brand-border: #ffd299;
+    --brand-sub-text: #9e9e9e;
+    /* accent */
+    --accent-primary: #ff7e15;
+    --accent-highlight: #ff1d04;
+    --accent-secondary: #ff6600;
+    /* cta */
+    --cta-bg: #14539d;
+    --cta-text: #ffffff;
+    --cta-hover-bg: #ffffff;
+    --cta-doc-bg: #ffffff;
+    --cta-doc-text: #ff6600;
+    --cta-doc-border: #ff6600;
+    --cta-seminar-bg: #14539d;
+    --cta-seminar-text: #ffffff;
+    /* text */
+    --text-body: #181010;
+    --text-muted: #9e9e9e;
+    /* Fonts */
+    --font-ja: 'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'BIZ UDPGothic', Meiryo, sans-serif;
+    --font-en: 'Oswald', sans-serif;
+    --font-number: 'DIN Alternate', 'URW DIN', sans-serif;
+    /* Layout */
+    --max-width: 1320px;
+    --border-radius-pill: 9999px;
+    --gap: 20px;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+body {
+    font-family: var(--font-ja);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-body);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* Layout */
+.l-inner {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.p-section {
+    padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+    .p-section {
+        padding: 80px 0;
+    }
+}
+
+/* ========================================
+   Section Backgrounds
+   ======================================== */
+.bg-sec-01 {
+    background: linear-gradient(282.92deg, #ffea60 -1.93%, #fb753f 98.19%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-sec-01::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    background: #fff;
+    clip-path: polygon(0 77%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+.bg-sec-02 {
+    background: #14539d;
+    color: #fff;
+    position: relative;
+}
+
+.bg-sec-02::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #f2f2f2;
+    clip-path: polygon(2% 100%, 100% 30%, 100% 100%, 0% 100%);
+}
+
+.bg-sec-03 {
+    background: #204d83;
+    color: #fff;
+}
+
+.bg-sec-04 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-05 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+.bg-sec-06 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-07 {
+    background: #14539d;
+    color: #fff;
+}
+
+.bg-sec-08 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-09 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+.bg-sec-10 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-11 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+.bg-sec-12 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+.bg-sec-13 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-14 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+.bg-sec-15 {
+    background: #14539d;
+    color: #fff;
+}
+
+.bg-sec-16 {
+    background: #ffffff;
+    color: var(--text-body);
+}
+
+.bg-sec-17 {
+    background: #14539d;
+    color: #fff;
+}
+
+.bg-sec-18 {
+    background: #f2f2f2;
+    color: var(--text-body);
+}
+
+/* ========================================
+   Section Headings
+   ======================================== */
+.l-section__title {
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 700;
+    text-align: center;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+.l-section__title--light {
+    color: #fff;
+}
+
+/* Balloon */
+.o-balloon {
+    display: inline-block;
+    background: #14539d;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.o-balloon--orange {
+    background: #fc843d;
+}
+
+/* ========================================
+   FV (sec_01)
+   ======================================== */
+.p-fv {
+    min-height: auto;
+    padding: 32px 20px 120px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .p-fv {
+        min-height: 600px;
+        padding: 60px 40px 120px;
+    }
+}
+
+.p-fv__content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.p-fv__main-copy {
+    font-size: clamp(28px, 8vw, 56px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 24px;
+}
+
+.p-fv__features {
+    margin-bottom: 32px;
+}
+
+.p-fv__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.p-fv__features li::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #FF8624;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.p-fv__badges {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.p-fv__badge {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    min-width: 140px;
+}
+
+.p-fv__badge-num {
+    font-family: var(--font-number);
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+
+.p-fv__badge-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   CTA Buttons
+   ======================================== */
+.o-ctaBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .o-ctaBtns {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.o-ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 64px;
+    min-width: min(380px, 100%);
+    padding: 16px 32px;
+    border-radius: var(--border-radius-pill);
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.14);
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.o-ctaBtn--doc {
+    background: #fff;
+    color: var(--cta-doc-text);
+    border-color: var(--cta-doc-border);
+}
+
+.o-ctaBtn--doc:hover {
+    background: var(--cta-doc-text);
+    color: #fff;
+}
+
+.o-ctaBtn--seminar {
+    background: var(--cta-seminar-bg);
+    color: var(--cta-seminar-text);
+    border-color: var(--cta-seminar-bg);
+}
+
+.o-ctaBtn--seminar:hover {
+    background: #fff;
+    color: var(--cta-seminar-bg);
+}
+
+.o-ctaBtn__micro {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+/* ========================================
+   10冠達成 (sec_03)
+   ======================================== */
+.c-achievement {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.c-achievement__title {
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 700;
+    color: #ffd299;
+    margin-bottom: 24px;
+}
+
+.c-achievement__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.c-achievement__badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 140px;
+    font-size: 0.85rem;
+}
+
+.c-achievement__note {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* ========================================
+   課題提起 (sec_04)
+   ======================================== */
+.c-challenge {
+    margin-bottom: 32px;
+}
+
+.c-challenge__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 12px;
+}
+
+.c-challenge__emphasis {
+    font-size: clamp(24px, 6vw, 48px);
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    text-align: center;
+    margin: 40px 0;
+    line-height: 1.4;
+}
+
+.c-challenge__emphasis span {
+    font-size: clamp(32px, 10vw, 64px);
+    color: var(--accent-secondary);
+}
+
+.c-challenge__list {
+    margin-top: 32px;
+}
+
+.c-challenge__list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.c-challenge__list li::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #FF8624;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* ========================================
+   心配解消 Mini FAQ (sec_05)
+   ======================================== */
+.c-worry-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-worry-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.c-worry-card {
+    background: #fff;
+    border-radius: 4.5px;
+    padding: 24px 16px;
+}
+
+.c-worry-card__q,
+.c-worry-card__a {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.c-worry-card__q {
+    margin-bottom: 16px;
+}
+
+.c-worry-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.c-worry-card__icon--q {
+    background: #14539d;
+}
+
+.c-worry-card__icon--a {
+    background: #FC843D;
+}
+
+.c-worry-card__q-text {
+    font-weight: 900;
+    font-size: 0.95rem;
+}
+
+.c-worry-card__a-text {
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   なぜ東南アジア (sec_06)
+   ======================================== */
+.c-reason-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-reason-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-reason {
+    background: #fff;
+    border-radius: 4.5px;
+    overflow: hidden;
+}
+
+.c-reason__header {
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+.c-reason__label {
+    display: inline-block;
+    background: #14539d;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: var(--border-radius-pill);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.c-reason__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+}
+
+.c-reason__body {
+    padding: 20px;
+}
+
+.c-reason__desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.c-reason__num {
+    font-family: var(--font-number);
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 700;
+    color: var(--accent-highlight);
+}
+
+.l-section__gradation {
+    background: linear-gradient(180deg, #ffbf59 -7.48%, #f36100 78.97%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 700;
+}
+
+/* ========================================
+   オンライン説明会案内/中間CTA (sec_07, sec_17)
+   ======================================== */
+.c-online__benefits {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .c-online__benefits {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-online__benefit {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--text-body);
+}
+
+.c-online__benefit::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #204d83;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   モデルケース (sec_08, sec_09)
+   ======================================== */
+.c-model {
+    margin-bottom: 40px;
+}
+
+.c-model__comment {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.c-model__comment::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-right-color: #fff;
+}
+
+.c-model__cards {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-model__cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-model__card {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+}
+
+.c-model__card-header {
+    padding: 20px;
+    text-align: center;
+}
+
+.c-model__card-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+}
+
+.c-model__card-body {
+    background: #f1f1f1;
+    padding: 24px;
+    text-align: center;
+}
+
+.c-model__card-value {
+    font-family: var(--font-number);
+    font-size: clamp(36px, 8vw, 56px);
+    font-weight: 700;
+    color: var(--accent-secondary);
+    line-height: 1;
+}
+
+.c-model__note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 24px;
+    text-align: center;
+}
+
+/* ========================================
+   開発企業紹介 (sec_10)
+   ======================================== */
+.c-company-intro {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.c-company-intro__title {
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 20px;
+}
+
+.c-company-intro__desc {
+    line-height: 1.8;
+}
+
+/* ========================================
+   テレビ紹介実績 (sec_11)
+   ======================================== */
+.c-tv-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-tv-logos__item {
+    background: #f5f5f5;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   サポート体制 (sec_12)
+   ======================================== */
+.c-support-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-support-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.c-support {
+    border: 4.45px solid var(--accent-secondary);
+    border-radius: 6.69px;
+    padding: 24px;
+    background: #fff;
+}
+
+.c-support__label {
+    display: inline-block;
+    background: var(--accent-secondary);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.c-support__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 20px;
+}
+
+.c-support__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.c-support__list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.c-support__list li::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #d9d9d9;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   6ステップ (sec_13)
+   ======================================== */
+.c-work-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .c-work-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.c-work-item {
+    padding: 24px;
+    border-radius: 8px;
+    border: 3px solid;
+}
+
+.c-work-item--user {
+    border-color: #ff8624;
+    background: rgba(255, 134, 36, 0.05);
+}
+
+.c-work-item--system {
+    border-color: #b0b0b0;
+    background: rgba(176, 176, 176, 0.05);
+}
+
+.c-work-item__step {
+    display: inline-block;
+    background: #14539d;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.c-work-item__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 8px;
+}
+
+.c-work-item__desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.c-work-item__tag {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+.c-work-scale {
+    background: linear-gradient(135deg, #e8f4fd 0%, #d4e8f7 100%);
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+}
+
+/* ========================================
+   導入事例 (sec_14)
+   ======================================== */
+.c-case {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.09);
+    padding: 32px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.c-case__label {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background: #14539d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.c-case__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brand-heading-text-light);
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+.c-case__profile {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.c-case__hr {
+    border: none;
+    border-top: 3px solid #e3e3e3;
+    margin: 16px 0;
+}
+
+.c-case__body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* ========================================
+   在庫リスクゼロ訴求 (sec_15)
+   ======================================== */
+.c-cover {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.c-cover__card {
+    background: #fff;
+    border: 5px solid var(--brand-border);
+    border-radius: 4px;
+    padding: 32px;
+    margin-top: 32px;
+}
+
+.c-cover__card-text {
+    color: var(--brand-heading-text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   FAQ (sec_16) - Accordion
+   ======================================== */
+.c-faq {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f2f2f2;
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.c-faq-item {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 16px;
+}
+
+.c-faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.c-faq-item__q {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.c-faq-item__a {
+    display: none;
+    padding-left: 64px;
+    margin-top: 12px;
+}
+
+.c-faq-item.is-open .c-faq-item__a {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.c-faq__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.c-faq__icon--q {
+    background: #14539d;
+}
+
+.c-faq__icon--a {
+    background: #FC843D;
+}
+
+.c-faq__q-text {
+    font-weight: 900;
+    line-height: 1.6;
+    padding-top: 10px;
+}
+
+.c-faq__a-text {
+    font-weight: 500;
+    line-height: 1.8;
+    padding-top: 10px;
+}
+
+/* ========================================
+   企業情報 (sec_18)
+   ======================================== */
+.c-footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .c-footer-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.c-footer-info__main {
+    flex: 1;
+}
+
+.c-footer-info__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.c-footer-info__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.c-footer-info__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.c-footer-info__links a {
+    color: #14539d;
+    font-size: 0.85rem;
+}
+
+/* Footer */
+.l-footer {
+    text-align: right;
+    padding: 24px 20px;
+    font-size: 11px;
+    color: #8f8f8f;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ========================================
+   SP Fixed Bar
+   ======================================== */
+.l-fixed-bar {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .l-fixed-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px var(--gap);
+        gap: 12px;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .l-fixed-bar.is-hide {
+        transform: translateY(100%);
+    }
+
+    .l-fixed-bar__btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        border-radius: var(--border-radius-pill);
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        border: 2px solid;
+    }
+
+    .l-fixed-bar__btn--doc {
+        background: #fff;
+        color: var(--cta-doc-text);
+        border-color: var(--cta-doc-border);
+    }
+
+    .l-fixed-bar__btn--seminar {
+        background: var(--cta-seminar-bg);
+        color: #fff;
+        border-color: var(--cta-seminar-bg);
+    }
+}
+
+/* Utilities */
+.u-text-center {
+    text-align: center;
+}
+
+.u-mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.u-mt-40 {
+    margin-top: 40px;
+}
