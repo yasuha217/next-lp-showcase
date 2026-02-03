@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT独自システム｜本業の成長を加速させる副事業</title>
+    <meta name="description" content="株式会社NEXTの独自システムで在庫リスクゼロの輸出ビジネスを実現。2000社以上導入、継続率95%。1日1時間の作業で副収益を構築。">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS Variables & Reset
+           ======================================== */
+        :root {
+            --brand-heading-band: hsl(210, 54%, 23%);
+            --brand-heading-text: hsl(210, 54%, 23%);
+            --brand-border: hsl(210, 54%, 23%);
+            --accent-secondary: hsl(40, 58%, 56%);
+            --accent-highlight: hsl(51, 97%, 77%);
+            --accent-primary: hsl(351, 72%, 50%);
+            --cta-bg-start: hsl(37, 91%, 55%);
+            --cta-bg-end: hsl(24, 78%, 52%);
+            --section-bg-dark-start: hsl(213, 63%, 15%);
+            --section-bg-dark-end: hsl(210, 54%, 23%);
+            --text-body: hsl(0, 0%, 20%);
+            --text-muted: hsl(0, 0%, 40%);
+            --muted: hsl(0, 0%, 96%);
+            --border: hsl(220, 13%, 91%);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 500;
+            line-height: 1.66;
+            letter-spacing: 0.05em;
+            color: var(--text-body);
+            background: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .font-heebo {
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .font-serif-jp {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        /* ========================================
+           Utility Classes
+           ======================================== */
+        .u-marker {
+            background: linear-gradient(transparent 60%, var(--accent-highlight) 60%);
+            padding: 0 2px;
+        }
+
+        .u-underline-red {
+            text-decoration: underline;
+            text-decoration-color: var(--accent-primary);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
+        }
+
+        .text-primary {
+            color: var(--brand-heading-text);
+        }
+
+        .text-accent {
+            color: var(--accent-secondary);
+        }
+
+        .text-destructive {
+            color: var(--accent-primary);
+        }
+
+        .text-muted-foreground {
+            color: var(--text-muted);
+        }
+
+        /* ========================================
+           Section Backgrounds
+           ======================================== */
+        .bg-navy {
+            background: var(--brand-heading-band);
+        }
+
+        .bg-navy-gradient {
+            background: linear-gradient(180deg, hsl(213, 63%, 15%) 0%, hsl(210, 54%, 23%) 100%);
+        }
+
+        .bg-gold-texture {
+            background: linear-gradient(135deg, hsl(45, 93%, 94%) 0%, hsl(47, 78%, 80%) 50%, hsl(45, 93%, 94%) 100%);
+        }
+
+        .bg-secondary {
+            background: var(--muted);
+        }
+
+        .bg-seigaiha-dark {
+            position: relative;
+        }
+
+        .bg-seigaiha-dark::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 30 Q15 0 30 30 M30 30 Q45 0 60 30' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 30px;
+            pointer-events: none;
+        }
+
+        .bg-seigaiha-light {
+            position: relative;
+        }
+
+        .bg-seigaiha-light::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cpath d='M0 30 Q15 0 30 30 M30 30 Q45 0 60 30' fill='none' stroke='rgba(100,180,230,0.12)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 30px;
+            pointer-events: none;
+        }
+
+        /* ========================================
+           Typography
+           ======================================== */
+        .text-heading-xl {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .text-heading-lg {
+            font-size: clamp(24px, 4vw, 40px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .text-heading-md {
+            font-size: clamp(20px, 3.5vw, 32px);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .text-heading-sm {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .text-number-lg {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 16px;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--brand-heading-band);
+        }
+
+        .section-heading-dark::after {
+            background: var(--accent-secondary);
+        }
+
+        /* ========================================
+           Components
+           ======================================== */
+        .cta-primary {
+            background: linear-gradient(90deg, hsl(37, 91%, 55%) 0%, hsl(24, 78%, 52%) 100%);
+            color: #fff;
+            font-weight: 700;
+            padding: 16px 48px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(232, 120, 40, 0.3);
+            transition: opacity 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+
+        .cta-primary:hover {
+            opacity: 0.85;
+        }
+
+        .card-bordered {
+            border: 3px solid var(--brand-heading-band);
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .card-bordered-header {
+            background: var(--brand-heading-band);
+            color: #fff;
+            padding: 12px 16px;
+            font-weight: 700;
+        }
+
+        .card-bordered-body {
+            padding: 20px;
+            background: #fff;
+        }
+
+        .card-panel {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+
+        .point-label {
+            background: var(--brand-heading-band);
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .corner-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-primary);
+            color: #fff;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 40px 20px 16px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            text-align: left;
+            background: transparent;
+            border: none;
+            font-size: inherit;
+            font-family: inherit;
+            color: var(--brand-heading-text);
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--brand-heading-band);
+        }
+
+        .faq-item.is-open .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 16px 20px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .faq-item.is-open .faq-answer {
+            display: block;
+        }
+
+        /* Compare Bar */
+        .c-compare {
+            max-width: 600px;
+            margin: 32px auto;
+        }
+
+        .c-compare__title {
+            color: var(--brand-heading-band);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .c-compare__group {
+            margin-bottom: 32px;
+        }
+
+        .c-compare__subtitle {
+            color: var(--brand-heading-band);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .c-compare__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .c-compare__label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .c-compare__label--before {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .c-compare__label--after {
+            background: var(--accent-primary);
+            color: #fff;
+        }
+
+        .c-compare__bar {
+            height: 40px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+        }
+
+        .c-compare__bar--before {
+            background: #d0d0d0;
+        }
+
+        .c-compare__bar--after {
+            background: linear-gradient(90deg, var(--brand-heading-band), hsl(210, 54%, 35%));
+            color: #fff;
+        }
+
+        .c-compare__bar-text {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        /* Flow */
+        .c-flow {
+            margin: 32px 0;
+        }
+
+        .c-flow__title {
+            color: var(--accent-secondary);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .c-flow__body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .c-flow__step {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px 24px;
+            text-align: center;
+            color: #fff;
+            min-width: 180px;
+        }
+
+        .c-flow__arrow {
+            color: var(--accent-secondary);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .c-flow__arrow--loop {
+            font-size: 1rem;
+            display: block;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Table */
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .company-table th,
+        .company-table td {
+            border: 1px solid var(--border);
+            padding: 16px;
+            text-align: left;
+        }
+
+        .company-table th {
+            width: 30%;
+            background: var(--muted);
+            font-weight: 700;
+        }
+
+        /* ========================================
+           sec_01: FV
+           ======================================== */
+        .p-fv {
+            position: relative;
+            min-height: 600px;
+            background-color: hsl(210, 54%, 23%);
+            background-image:
+                linear-gradient(180deg, rgba(26, 45, 66, 0.7) 0%, rgba(36, 56, 86, 0.85) 100%),
+                url('images/hero-bg.png');
+            background-size: cover;
+            background-position: 80% 20%;
+            color: #fff;
+        }
+
+        .p-fv__header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .p-fv__header-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .p-fv__content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 0 80px;
+        }
+
+        .p-fv__sub {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .p-fv__main {
+            margin-bottom: 32px;
+        }
+
+        .p-fv__badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .p-section {
+            padding: 64px 0;
+        }
+
+        /* Feature zigzag */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .feature-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image {
+            flex: 1 1 300px;
+            min-width: 280px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 8px;
+            background: var(--muted);
+        }
+
+        .feature-content {
+            flex: 1 1 300px;
+        }
+
+        @media (max-width: 767px) {
+
+            .feature-item,
+            .feature-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .c-flow__body {
+                flex-direction: column;
+            }
+
+            .c-flow__arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+     sec_01: FV（ファーストビュー）
+     ======================================== -->
+    <section class="p-fv bg-seigaiha-dark" id="sec_01">
+        <div class="p-fv__header">
+            <div class="container p-fv__header-inner">
+                <p>売上拡大のため、輸出展開を考えている方へ</p>
+                <p style="font-weight:700;">年商5000万円以上を目指せる</p>
+            </div>
+        </div>
+        <div class="container p-fv__content">
+            <p class="p-fv__sub">「世界7か国」への展開と「独自システム」で御社の事業拡大を支援します</p>
+            <h1 class="text-heading-xl p-fv__main">本業の成長を加速させる<span class="text-accent">副事業</span></h1>
+
+            <div class="p-fv__badges">
+                <div class="trust-badge">
+                    <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:4px;">実績</p>
+                    <p class="font-heebo text-number-lg text-accent">11</p>
+                    <p style="font-weight:700;">年目</p>
+                </div>
+                <div class="trust-badge">
+                    <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:4px;">導入社数</p>
+                    <p class="font-heebo text-number-lg text-accent">2000</p>
+                    <p style="font-weight:700;">社以上</p>
+                </div>
+                <div class="trust-badge">
+                    <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:4px;">継続率</p>
+                    <p class="font-heebo text-number-lg text-accent">95</p>
+                    <p style="font-weight:700;">%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_02: Challenges
+     ======================================== -->
+    <section class="p-section" id="sec_02" style="background:#fff;">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">CHALLENGES</p>
+                <h2 class="text-heading-md text-primary section-heading">
+                    今の経営状況の課題を<br class="md-hidden">
+                    <span class="text-destructive">NEXTの独自システム</span>で解決いたします！
+                </h2>
+            </div>
+
+            <div class="grid-2">
+                <div class="card-bordered" style="position:relative;">
+                    <div class="corner-badge">リスク</div>
+                    <div class="card-bordered-header" style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:20px;">📉</span>
+                        <h3 class="u-underline-red">国内市場への限界と危機感</h3>
+                    </div>
+                    <div class="card-bordered-body">
+                        <p class="text-muted-foreground">今の事業一本に頼り切った経営体制に、将来的なリスクを感じている…</p>
+                    </div>
+                </div>
+                <div class="card-bordered" style="position:relative;">
+                    <div class="corner-badge">資金</div>
+                    <div class="card-bordered-header" style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:20px;">⚠️</span>
+                        <h3 class="u-underline-red">売上を上げたいがリスクは避けたい</h3>
+                    </div>
+                    <div class="card-bordered-body">
+                        <p class="text-muted-foreground">売上は欲しいが、多額の資金が必要なビジネスや施策はできない…</p>
+                    </div>
+                </div>
+                <div class="card-bordered" style="position:relative;">
+                    <div class="corner-badge">人材</div>
+                    <div class="card-bordered-header" style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:20px;">👥</span>
+                        <h3 class="u-underline-red">新規事業を立ち上げたいが人手が足りない</h3>
+                    </div>
+                    <div class="card-bordered-body">
+                        <p class="text-muted-foreground">新しい柱を作りたいが、既存社員は今の業務で手一杯。かといって、新規事業のために人を雇えない…</p>
+                    </div>
+                </div>
+                <div class="card-bordered" style="position:relative;">
+                    <div class="corner-badge">知識</div>
+                    <div class="card-bordered-header" style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:20px;">🌍</span>
+                        <h3 class="u-underline-red">海外展開したいがノウハウがない</h3>
+                    </div>
+                    <div class="card-bordered-body">
+                        <p class="text-muted-foreground">円安をチャンスに変えたいが、社内に輸出の知見がある人材がいない…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_03: Strengths
+     ======================================== -->
+    <section class="p-section bg-seigaiha-light" id="sec_03">
+        <div class="container" style="max-width:800px;position:relative;z-index:1;">
+            <div style="text-align:center;margin-bottom:16px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">STRENGTHS</p>
+                <h2 class="text-heading-md text-primary section-heading">
+                    NEXTの独自システム<span class="text-destructive">5つの強み</span>
+                </h2>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);margin-bottom:48px;">失敗するリスクを徹底的に排除した戦略</p>
+
+            <div style="display:flex;flex-direction:column;gap:32px;">
+                <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <div class="point-label"><span style="font-size:10px;">Point</span><span
+                            style="font-size:20px;">1</span></div>
+                    <div>
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:8px;">
+                            在庫リスクゼロの新しい物販システム</h3>
+                        <p>本来であれば在庫が必要な事業に対して、弊社システムを用いることにより、在庫を持たない事業で売上を上げることができます。</p>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <div class="point-label"><span style="font-size:10px;">Point</span><span
+                            style="font-size:20px;">2</span></div>
+                    <div>
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:8px;">副事業による売上の増加
+                        </h3>
+                        <p>副事業で第2の収益源を構築します。<span class="u-marker"
+                                style="font-weight:700;">人を雇わず収益の柱を構築</span>でき、本業の経営基盤を財務面から強力にバックアップします。</p>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <div class="point-label"><span style="font-size:10px;">Point</span><span
+                            style="font-size:20px;">3</span></div>
+                    <div>
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:8px;">
+                            銀行融資が受けやすい事業モデル</h3>
+                        <p>新たな売上で金融機関からの信用力を底上げされ、実際に副事業の売上をベースにした事業計画書で<span class="u-marker"
+                                style="font-weight:700;">総額1億円以上の融資</span>を獲得できている法人様もいらっしゃいます。</p>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <div class="point-label"><span style="font-size:10px;">Point</span><span
+                            style="font-size:20px;">4</span></div>
+                    <div>
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:8px;">
+                            どんどん貯まるマイルやポイント</h3>
+                        <p>法人カードのマイルやポイントが自然と蓄積されます。出張経費の削減や、<span class="u-marker"
+                                style="font-weight:700;">従業員への福利厚生</span>として活用できます。</p>
+                    </div>
+                </div>
+                <div style="display:flex;gap:16px;align-items:flex-start;">
+                    <div class="point-label"><span style="font-size:10px;">Point</span><span
+                            style="font-size:20px;">5</span></div>
+                    <div>
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:8px;">知識や経験・ノウハウ不要
+                        </h3>
+                        <p>導入企業様の<span class="u-marker"
+                                style="font-weight:700;">98%が未経験からのスタート</span>です。その中で、毎月数百万〜一千万単位での売上を積み重ねています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_04: Company
+     ======================================== -->
+    <section class="p-section bg-navy" id="sec_04" style="color:#fff;">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;color:rgba(255,255,255,0.6);">COMPANY
+                </p>
+                <h2 class="text-heading-md section-heading section-heading-dark" style="color:#fff;">
+                    弊社、株式会社NEXTについて
+                </h2>
+            </div>
+
+            <div class="grid-2" style="margin-bottom:48px;">
+                <div
+                    style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+                    <h3 class="text-accent u-underline-red" style="font-size:18px;font-weight:700;margin-bottom:16px;">
+                        世界7ヶ国へ、日本の価値を届ける「架け橋」</h3>
+                    <p style="color:rgba(255,255,255,0.8);line-height:1.8;">
+                        「複雑さ」や「リスク」。これら海外進出における障壁をテクノロジーで取り払い、誰でも安全に世界へ販売できる仕組みを提供しています。</p>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:24px;">
+                    <h3 class="text-accent u-underline-red" style="font-size:18px;font-weight:700;margin-bottom:16px;">
+                        輸出入ビジネスのパートナーとして選ばれて11年目</h3>
+                    <p style="color:rgba(255,255,255,0.8);line-height:1.8;">
+                        私たちは2014年の設立以来、11年間にわたり「数多くの中小企業の物販事業」を裏側で支え続けてきました。これまでに2,000社以上の法人様に導入いただき、お喜びの声を頂いております。</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="text-align:center;font-size:18px;font-weight:700;margin-bottom:24px;">メディア実績</h3>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+                    <div
+                        style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:12px 16px;font-size:14px;color:rgba(255,255,255,0.9);">
+                        ラヴィット！</div>
+                    <div
+                        style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:12px 16px;font-size:14px;color:rgba(255,255,255,0.9);">
+                        カンニング竹山のイチバン研究所</div>
+                    <div
+                        style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:12px 16px;font-size:14px;color:rgba(255,255,255,0.9);">
+                        モーニングこんぱす</div>
+                    <div
+                        style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:12px 16px;font-size:14px;color:rgba(255,255,255,0.9);">
+                        はなわのシャカリキ！プラス</div>
+                    <div
+                        style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:12px 16px;font-size:14px;color:rgba(255,255,255,0.9);">
+                        ナイツのこれイチ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_05: Features
+     ======================================== -->
+    <section class="p-section" id="sec_05" style="background:#fff;">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">FEATURES</p>
+                <h2 class="text-heading-md text-primary section-heading">NEXT独自システムの特徴</h2>
+            </div>
+
+            <div class="feature-grid">
+                <!-- Feature 1 -->
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <img src="images/feature-cashflow.png" alt="キャッシュフロー図解">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:16px;">
+                            失敗のリスクを限りなくゼロにした<br>
+                            <span class="u-marker">キャッシュフロー</span>
+                        </h3>
+                        <p class="text-muted-foreground" style="line-height:1.8;">
+                            入金が確定してから経費を払う特殊フローを構築。一般的なビジネスで起こりうる「売上はあるけど資金ショートする」リスクを構造的に排除しています。</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <img src="images/feature-laptop.png" alt="パソコン1台で完結">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:16px;">
+                            場所や設備に縛られないで<br>
+                            <span class="u-marker">パソコン1台で完結</span>
+                        </h3>
+                        <p class="text-muted-foreground" style="line-height:1.8;">
+                            専用のオフィスや倉庫、特別な設備は一切不要です。インターネット環境とノートPCさえあれば、オフィス、自宅、出張先など、どこにいてもビジネスを展開できます。</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-item">
+                    <div class="feature-image">
+                        <img src="images/feature-efficiency.png" alt="1日1時間の効率運用">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="text-heading-sm text-primary u-underline-red" style="margin-bottom:16px;">
+                            既存業務を圧迫しない<br>
+                            <span class="u-marker">1日1時間</span>の効率的な運用体制
+                        </h3>
+                        <p class="text-muted-foreground" style="line-height:1.8;">
+                            御社の担当者様が行うのは、日々の簡単なオンライン作業のみ。本業のスキマ時間で無理なく運用でき、本来の業務に支障をきたしません。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_06: Tax Benefit
+     ======================================== -->
+    <section class="p-section bg-gold-texture" id="sec_06">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:16px;">
+                <p class="font-serif-jp"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;color:rgba(36,56,86,0.6);">TAX BENEFIT
+                </p>
+                <h2 class="text-heading-md text-primary section-heading">
+                    さらに、決算月でも間に合う「<span class="text-destructive">100%費用計上</span>」
+                </h2>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);margin-bottom:8px;">数年の短期回収で135%超の回収率を実現</p>
+            <p style="text-align:center;font-size:14px;color:rgba(36,56,86,0.7);margin-bottom:48px;">
+                〜節税効果と事業収益力を双方満たす節税対策も〜</p>
+
+            <div class="card-bordered" style="max-width:600px;margin:0 auto 48px;">
+                <div class="card-bordered-header" style="text-align:center;">本システムの節税の特徴</div>
+                <div class="card-bordered-body">
+                    <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+                        <h4 style="font-weight:700;color:var(--brand-heading-text);margin-bottom:8px;">法人税を圧縮</h4>
+                        <p class="text-muted-foreground" style="font-size:14px;">最終利益の見込みが分かる決算月直前でも費用計上で税負担を大幅に軽減します。
+                        </p>
+                    </div>
+                    <div style="padding:16px 0;border-bottom:1px solid var(--border);">
+                        <h4 style="font-weight:700;color:var(--brand-heading-text);margin-bottom:8px;">数年で150%以上の回収率
+                        </h4>
+                        <p class="text-muted-foreground" style="font-size:14px;">節税しながらも副事業として安定した収益を確保。短期での投資回収を実現します。
+                        </p>
+                    </div>
+                    <div style="padding:16px 0;">
+                        <h4 style="font-weight:700;color:var(--brand-heading-text);margin-bottom:8px;">副収益による経営安定</h4>
+                        <p class="text-muted-foreground" style="font-size:14px;">本業以外の収益源を確保することで、経営の安定性と持続性が向上します。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-compare">
+                <h4 class="c-compare__title">導入前後の比較イメージ</h4>
+                <div class="c-compare__group">
+                    <p class="c-compare__subtitle">売上イメージ</p>
+                    <div class="c-compare__item">
+                        <span class="c-compare__label c-compare__label--before">Before</span>
+                        <div class="c-compare__bar c-compare__bar--before" style="width:60%;">
+                            <span class="c-compare__bar-text">月間売上1000万円</span>
+                        </div>
+                    </div>
+                    <div class="c-compare__item">
+                        <span class="c-compare__label c-compare__label--after">After</span>
+                        <div class="c-compare__bar c-compare__bar--after" style="width:90%;">
+                            <span class="c-compare__bar-text">月間売上1000万円 + 副事業月間売上500万円</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_07: Results
+     ======================================== -->
+    <section class="p-section bg-navy-gradient" id="sec_07" style="color:#fff;">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;color:rgba(255,255,255,0.6);">RESULTS
+                </p>
+                <h2 class="text-heading-md section-heading section-heading-dark" style="color:#fff;">
+                    導入企業様の数々の売上実績
+                </h2>
+            </div>
+            <div style="text-align:center;padding:80px 0;">
+                <p style="font-size:24px;color:rgba(255,255,255,0.3);font-weight:700;letter-spacing:0.2em;">COMING SOON
+                </p>
+                <p style="color:rgba(255,255,255,0.2);margin-top:16px;font-size:14px;">導入企業様の実績データは準備中です</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_08: Voice 01
+     ======================================== -->
+    <section class="p-section bg-secondary" id="sec_08">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:16px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">VOICE 01</p>
+                <h2 class="text-heading-md text-primary section-heading">お客様の声</h2>
+            </div>
+            <p style="text-align:center;font-size:18px;margin-bottom:48px;">
+                銀行が認めた「事業の堅実性」。システムの売上実績だけで「<span class="u-marker" style="font-weight:700;">総額1億円以上</span>」の融資を獲得できました
+            </p>
+
+            <div class="card-panel" style="padding:32px;max-width:800px;margin:0 auto;">
+                <div style="display:flex;flex-wrap:wrap;gap:24px;">
+                    <div style="flex-shrink:0;text-align:center;">
+                        <div
+                            style="width:80px;height:80px;border-radius:50%;background:var(--brand-heading-band);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;">
+                            酒</div>
+                        <p style="font-size:14px;font-weight:700;color:var(--brand-heading-text);margin-top:8px;">酒井 様
+                        </p>
+                        <p style="font-size:12px;color:var(--text-muted);">本システム利用者</p>
+                    </div>
+                    <div style="flex:1;min-width:280px;">
+                        <div style="border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:16px;">
+                            <span
+                                style="display:inline-block;background:var(--brand-heading-band);color:#fff;font-size:12px;padding:4px 12px;border-radius:4px;margin-bottom:8px;">背景</span>
+                            <p>当初は「手堅い第二の柱」としてスタート。システムによる自動化で順調に売上を伸ばす。</p>
+                        </div>
+                        <div style="border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:16px;">
+                            <span
+                                style="display:inline-block;background:var(--accent-secondary);color:var(--brand-heading-text);font-size:12px;padding:4px 12px;border-radius:4px;margin-bottom:8px;">転機</span>
+                            <p>メインバンクに本システムを活用した事業の決算書と事業計画を提示したところ、「大手企業から、これだけ安定したキャッシュフローがあるなら」と高い事業評価を獲得。</p>
+                        </div>
+                        <div>
+                            <span
+                                style="display:inline-block;background:var(--accent-primary);color:#fff;font-size:12px;padding:4px 12px;border-radius:4px;margin-bottom:8px;">結果</span>
+                            <p>プロパー融資を含め、<span class="u-marker"
+                                    style="font-weight:700;">総額約1億円</span>の資金調達に成功。その資金を元手に本業の拡大を実現されました。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_09: Voice 02
+     ======================================== -->
+    <section class="p-section bg-navy" id="sec_09" style="color:#fff;">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center;margin-bottom:16px;">
+                <p class="font-serif-jp"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;color:rgba(255,255,255,0.6);">VOICE 02
+                </p>
+                <h2 class="text-heading-md section-heading section-heading-dark" style="color:#fff;">お客様の声</h2>
+            </div>
+            <p style="text-align:center;font-size:18px;color:rgba(255,255,255,0.9);margin-bottom:48px;">
+                「空き時間」を本業を伸ばすための「投資資金」に！
+            </p>
+
+            <div
+                style="background:#fff;border-radius:8px;padding:32px;max-width:800px;margin:0 auto;color:var(--text-body);">
+                <div style="display:flex;flex-wrap:wrap;gap:24px;">
+                    <div style="flex-shrink:0;text-align:center;">
+                        <div
+                            style="width:80px;height:80px;border-radius:50%;background:var(--brand-heading-band);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;">
+                            光</div>
+                        <p style="font-size:14px;font-weight:700;color:var(--brand-heading-text);margin-top:8px;">光山 様
+                        </p>
+                        <p style="font-size:12px;color:var(--text-muted);">本システム利用者</p>
+                    </div>
+                    <div style="flex:1;min-width:280px;">
+                        <blockquote
+                            style="border-left:4px solid var(--accent-secondary);padding-left:16px;font-style:italic;color:var(--text-muted);">
+                            導入してよかったことは、本システムを活用して上がった売上を本業の方へ広告費を回すことができて、<span class="u-underline-red"
+                                style="font-style:normal;font-weight:700;color:var(--text-body);">本業の売上を伸ばすことができて</span>、相乗効果で事業を伸ばすことができています。
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-flow" style="margin-top:48px;">
+                <h4 class="c-flow__title">光山様 事例</h4>
+                <div class="c-flow__body">
+                    <div class="c-flow__step">
+                        <span style="font-size:28px;display:block;margin-bottom:8px;">💰</span>
+                        <span>収益を広告費へ</span>
+                    </div>
+                    <span class="c-flow__arrow">→</span>
+                    <div class="c-flow__step">
+                        <span style="font-size:28px;display:block;margin-bottom:8px;">📈</span>
+                        <span>収益を広告費や運転資金へ</span>
+                    </div>
+                    <span class="c-flow__arrow c-flow__arrow--loop">↩ 循環</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_10: FAQ
+     ======================================== -->
+    <section class="p-section" id="sec_10" style="background:#fff;">
+        <div class="container" style="max-width:800px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">FAQ</p>
+                <h2 class="text-heading-md text-primary section-heading">よくある質問</h2>
+            </div>
+
+            <div class="card-panel">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('is-open')">
+                        Q.スタッフは何人ほど必要でしょうか？
+                    </button>
+                    <div class="faq-answer">
+                        基本的には1名から運用可能です。弊社のサポート体制が充実しているため、専任スタッフを置く必要はありません。既存の業務と兼任で十分対応いただけます。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('is-open')">
+                        Q.スタッフのスキマ時間でできますか？
+                    </button>
+                    <div class="faq-answer">
+                        はい、可能です。1日1時間程度の作業で運用できるよう、独自の販売管理ツールを提供しています。本業の合間や移動時間など、スキマ時間を活用して取り組んでいただけます。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('is-open')">
+                        Q.物販未経験でも大丈夫ですか？
+                    </button>
+                    <div class="faq-answer">
+                        もちろん大丈夫です。導入企業様の98%が未経験からのスタートです。専門チームが一からサポートしますので、知識や経験がなくても安心して始められます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_11: Company Info
+     ======================================== -->
+    <section class="p-section bg-secondary" id="sec_11">
+        <div class="container" style="max-width:800px;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <p class="font-serif-jp text-muted-foreground"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;">COMPANY INFO</p>
+                <h2 class="text-heading-md text-primary section-heading">企業情報</h2>
+            </div>
+
+            <table class="company-table" style="background:#fff;">
+                <tbody>
+                    <tr>
+                        <th>会社名</th>
+                        <td>株式会社NEXT</td>
+                    </tr>
+                    <tr>
+                        <th>所在地</th>
+                        <td>〒105-0012 東京都港区芝大門1-3-8 VORT芝大門II 5階・7階</td>
+                    </tr>
+                    <tr>
+                        <th>設立</th>
+                        <td>平成27年10月27日</td>
+                    </tr>
+                    <tr>
+                        <th>資本金</th>
+                        <td>10,000,000円</td>
+                    </tr>
+                    <tr>
+                        <th>代表取締役</th>
+                        <td>鈴江 将人</td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td>03-5244-9650</td>
+                    </tr>
+                    <tr>
+                        <th>従業員数</th>
+                        <td>60名 グループ・アルバイト含む</td>
+                    </tr>
+                    <tr>
+                        <th>事業内容</th>
+                        <td>物販事業 / 倉庫・物流事業 / システム開発事業</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ========================================
+     sec_12: CTA
+     ======================================== -->
+    <section class="p-section bg-navy-gradient bg-seigaiha-dark" id="sec_12">
+        <div class="container" style="max-width:800px;position:relative;z-index:1;text-align:center;">
+            <div style="margin-bottom:16px;">
+                <p class="font-serif-jp"
+                    style="font-size:14px;letter-spacing:0.2em;margin-bottom:8px;color:rgba(255,255,255,0.6);">CONTACT
+                </p>
+                <h2 class="text-heading-lg" style="color:#fff;">まずは無料で資料請求</h2>
+            </div>
+            <p style="color:rgba(255,255,255,0.8);margin-bottom:32px;">導入事例や具体的な収益シミュレーションをご覧いただけます</p>
+
+            <a href="/contact/" class="cta-primary" style="font-size:18px;">
+                無料で資料を請求する
+                <span style="font-size:20px;">›</span>
+            </a>
+
+            <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-top:24px;">※ 営業電話は一切いたしません</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+     Footer
+     ======================================== -->
+    <footer class="bg-navy-gradient" style="padding:24px 0;text-align:center;">
+        <p style="color:rgba(255,255,255,0.5);font-size:14px;">© 株式会社NEXT All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
