@@ -474,13 +474,43 @@
         .p-fv {
             position: relative;
             min-height: 600px;
-            background-color: hsl(210, 54%, 23%);
-            background-image:
-                linear-gradient(180deg, rgba(26, 45, 66, 0.7) 0%, rgba(36, 56, 86, 0.85) 100%),
-                url('images/hero-bg.png');
-            background-size: cover;
-            background-position: 80% 20%;
+            background-color: #2d3e50;
             color: #fff;
+            overflow: hidden;
+        }
+
+        .p-fv__person {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 100%;
+            width: auto;
+            z-index: 0;
+            mask-image: linear-gradient(to right, transparent 0%, black 30%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+        }
+
+        @media (max-width: 767px) {
+            .p-fv__person {
+                height: 80%;
+                right: -10%;
+                opacity: 0.6;
+            }
+        }
+
+        .p-fv::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(36, 56, 86, 0.9) 0%, rgba(36, 56, 86, 0.6) 50%, transparent 100%);
+            z-index: 1;
+        }
+
+        @media (max-width: 767px) {
+            .p-fv::before {
+                background: linear-gradient(90deg, rgba(36, 56, 86, 0.95) 0%, rgba(36, 56, 86, 0.8) 100%);
+            }
         }
 
         .p-fv__header {
@@ -595,6 +625,7 @@
      sec_01: FV（ファーストビュー）
      ======================================== -->
     <section class="p-fv bg-seigaiha-dark" id="sec_01">
+        <img src="images/hero-bg.png" class="p-fv__person" alt="">
         <div class="p-fv__header">
             <div class="container p-fv__header-inner">
                 <p>売上拡大のため、輸出展開を考えている方へ</p>
