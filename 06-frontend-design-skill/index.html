@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXT - 本業の成長を加速させる副事業</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&family=Heebo:wght@700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Variables (Design Tokens)
+       ======================================== */
+    :root {
+      /* Colors */
+      --navy: #0F0068;
+      --navy-dark: #021B30;
+      --gold: #D4A84B;
+      --gold-light: #F5D78E;
+      --gold-dark: #8B6914;
+      --cream: #FEF6E4;
+      --teal: #197572;
+      --crimson: #AC272D;
+      --marker: #FFFF00;
+      --white: #FFFFFF;
+      --gray-100: #F3F4F6;
+      --gray-300: #D1D5DB;
+      --gray-600: #4B5563;
+      --gray-800: #1F2937;
+
+      /* Gradients */
+      --gradient-navy: linear-gradient(180deg, #0F0068 0%, #021B30 100%);
+      --gradient-cta: linear-gradient(90deg, #F5A623 0%, #E07828 100%);
+      --gradient-gold: linear-gradient(135deg, #D4A84B 0%, #F5D78E 50%, #D4A84B 100%);
+
+      /* Typography */
+      --font-serif: "Noto Serif JP", serif;
+      --font-sans: "Noto Sans JP", sans-serif;
+      --font-number: "Heebo", sans-serif;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray-800);
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Seigaiha Pattern (SVG Background)
+       ======================================== */
+    .seigaiha-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50' viewBox='0 0 100 50'%3E%3Cpath d='M0 50 C25 50 25 25 50 25 C75 25 75 50 100 50 L100 0 L0 0 Z' fill='none' stroke='%23FFFFFF' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M-50 50 C-25 50 -25 25 0 25 C25 25 25 50 50 50' fill='none' stroke='%23FFFFFF' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M50 50 C75 50 75 25 100 25 C125 25 125 50 150 50' fill='none' stroke='%23FFFFFF' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 100px 50px;
+    }
+
+    .seigaiha-light {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='50' viewBox='0 0 100 50'%3E%3Cpath d='M0 50 C25 50 25 25 50 25 C75 25 75 50 100 50 L100 0 L0 0 Z' fill='none' stroke='%230F0068' stroke-width='0.5' opacity='0.12'/%3E%3Cpath d='M-50 50 C-25 50 -25 25 0 25 C25 25 25 50 50 50' fill='none' stroke='%230F0068' stroke-width='0.5' opacity='0.12'/%3E%3Cpath d='M50 50 C75 50 75 25 100 25 C125 25 125 50 150 50' fill='none' stroke='%230F0068' stroke-width='0.5' opacity='0.12'/%3E%3C/svg%3E");
+      background-size: 100px 50px;
+    }
+
+    /* ========================================
+       Utility Classes
+       ======================================== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .marker {
+      background: linear-gradient(transparent 60%, var(--marker) 60%);
+      padding: 0 4px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-white {
+      color: var(--white);
+    }
+
+    .text-navy {
+      color: var(--navy);
+    }
+
+    .text-gold {
+      color: var(--gold);
+    }
+
+    .text-crimson {
+      color: var(--crimson);
+    }
+
+    /* ========================================
+       Typography
+       ======================================== */
+    .headline-xl {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .headline-lg {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .headline-md {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .headline-sm {
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .body-lg {
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    .body-md {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .body-sm {
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+
+    .number-xl {
+      font-family: var(--font-number);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .number-lg {
+      font-family: var(--font-number);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ========================================
+       Buttons
+       ======================================== */
+    .btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      min-width: 240px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-cta);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(240, 120, 40, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(240, 120, 40, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-primary-white {
+      background: var(--white);
+      color: var(--teal);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary-white:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .btn-micro {
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* ========================================
+       Cards
+       ======================================== */
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    /* ========================================
+       Trust Badges
+       ======================================== */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .trust-badge {
+      text-align: center;
+      padding: 16px 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(212, 168, 75, 0.3);
+    }
+
+    .trust-badge-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 4px;
+    }
+
+    .trust-badge-value {
+      font-family: var(--font-number);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .trust-badge-unit {
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    /* ========================================
+       Point Sections
+       ======================================== */
+    .point-section {
+      padding: 80px 0;
+    }
+
+    .point-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .point-content.reverse {
+      direction: rtl;
+    }
+
+    .point-content.reverse>* {
+      direction: ltr;
+    }
+
+    .point-number {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .point-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .point-num {
+      font-family: var(--font-number);
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .point-headline {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .point-body {
+      font-size: 1rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    .point-image {
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .point-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .point-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ========================================
+       Section Styles
+       ======================================== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--navy);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 16px auto 0;
+    }
+
+    /* ========================================
+       SEC_01: First View
+       ======================================== */
+    .fv {
+      background: linear-gradient(rgba(15, 0, 104, 0.7), rgba(2, 27, 48, 0.8)), url("images/fv_hero.jpg");
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fv-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .fv-pre-headline {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 16px;
+    }
+
+    .fv-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .fv-sub-headline {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+    }
+
+    .fv-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .fv-feature {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .fv-feature::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ========================================
+       SEC_02: CTA Below FV
+       ======================================== */
+    .cta-section {
+      background: var(--navy-dark);
+      padding: 40px 0;
+    }
+
+    /* ========================================
+       SEC_03: Problem Section
+       ======================================== */
+    .problem-section {
+      background: var(--white);
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .problem-card {
+      background: var(--white);
+      border: 1px solid rgba(15, 0, 104, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .problem-card:hover {
+      border-color: var(--navy);
+      box-shadow: var(--shadow-md);
+    }
+
+    .problem-badge {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .problem-title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
+
+    .problem-body {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    .problem-transition {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* ========================================
+       SEC_04: 5 Points Intro
+       ======================================== */
+    .points-intro {
+      background: var(--gradient-navy);
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .points-intro-sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+    }
+
+    .points-intro-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    /* ========================================
+       Point Section Backgrounds
+       ======================================== */
+    .bg-white {
+      background: var(--white);
+    }
+
+    .bg-cream {
+      background: var(--cream);
+    }
+
+    /* ========================================
+       SEC_09: Business Report
+       ======================================== */
+    .bizrepo-section {
+      background: var(--cream);
+      padding: 80px 0;
+    }
+
+    .bizrepo-placeholder {
+      background: var(--gray-100);
+      border: 2px dashed var(--gray-300);
+      border-radius: 12px;
+      padding: 80px 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .bizrepo-label {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .bizrepo-note {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+
+    /* ========================================
+       SEC_10: Testimonials
+       ======================================== */
+    .testimonials-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .testimonial {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .testimonial:last-child {
+      margin-bottom: 0;
+    }
+
+    .testimonial-number {
+      position: absolute;
+      top: -16px;
+      left: 30px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 700;
+    }
+
+    .testimonial-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .testimonial-image {
+      border-radius: 12px;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+
+    .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-text {
+      padding-top: 16px;
+    }
+
+    .testimonial-headline {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .testimonial-detail {
+      margin-bottom: 12px;
+    }
+
+    .testimonial-detail-label {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.875rem;
+    }
+
+    .testimonial-detail-text {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    .testimonial-author {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    .testimonial-quote {
+      font-size: 1rem;
+      color: var(--gray-800);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .testimonial-flow {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      background: var(--navy);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .flow-arrow {
+      color: var(--gold);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .flow-label {
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ========================================
+       SEC_11: Company Introduction
+       ======================================== */
+    .company-section {
+      background: var(--cream);
+      padding: 80px 0;
+    }
+
+    .company-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .company-image {
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .company-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .company-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .company-text p {
+      font-size: 1rem;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+    }
+
+    /* ========================================
+       SEC_12: Media
+       ======================================== */
+    .media-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .media-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .media-logo {
+      background: var(--gray-100);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      white-space: nowrap;
+    }
+
+    /* ========================================
+       SEC_13: System Features
+       ======================================== */
+    .features-section {
+      background: var(--cream);
+      padding: 80px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-number {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .feature-body {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    /* ========================================
+       SEC_14: Tax Benefits
+       ======================================== */
+    .tax-section {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--cream) 50%, var(--gold-light) 100%);
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .tax-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tax-pre-headline {
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .tax-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    .tax-highlight-box {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 40px;
+    }
+
+    .tax-highlight-lead {
+      font-size: 1.125rem;
+      color: var(--navy);
+    }
+
+    .tax-highlight-value {
+      font-family: var(--font-number);
+      font-size: clamp(4rem, 10vw, 6rem);
+      font-weight: 900;
+      color: var(--crimson);
+      line-height: 1;
+    }
+
+    .tax-highlight-suffix {
+      font-size: 1.25rem;
+      color: var(--navy);
+    }
+
+    .tax-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .tax-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: left;
+    }
+
+    .tax-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .tax-card-body {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+    }
+
+    /* ========================================
+       SEC_15: Graph Section
+       ======================================== */
+    .graph-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .graph-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .graph-before,
+    .graph-after {
+      padding: 32px;
+      border-radius: 12px;
+    }
+
+    .graph-before {
+      background: var(--gray-100);
+    }
+
+    .graph-after {
+      background: linear-gradient(135deg, rgba(212, 168, 75, 0.1) 0%, rgba(254, 246, 228, 1) 100%);
+      border: 2px solid var(--gold);
+    }
+
+    .graph-label {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .graph-item {
+      padding: 8px 0;
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .graph-item:last-child {
+      border-bottom: none;
+    }
+
+    .graph-item.highlight {
+      color: var(--crimson);
+      font-weight: 700;
+    }
+
+    .graph-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      margin-top: 24px;
+    }
+
+    /* ========================================
+       SEC_16: FAQ
+       ======================================== */
+    .faq-section {
+      background: var(--cream);
+      padding: 80px 0;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(15, 0, 104, 0.02);
+    }
+
+    .faq-question::before {
+      content: "Q";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.875rem;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      background: var(--navy);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon::before {
+      width: 16px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-icon::after {
+      width: 2px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.active .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px 72px;
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* ========================================
+       SEC_17: Company Info Table
+       ======================================== */
+    .info-section {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .info-table {
+      max-width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .info-table th {
+      background: var(--cream);
+      padding: 16px 24px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--navy);
+      width: 180px;
+      vertical-align: top;
+    }
+
+    .info-table td {
+      padding: 16px 24px;
+      color: var(--gray-800);
+    }
+
+    .info-table a {
+      color: var(--teal);
+      text-decoration: underline;
+    }
+
+    /* ========================================
+       SEC_18: Final CTA
+       ======================================== */
+    .final-cta {
+      background: var(--teal);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .final-cta-pre {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+    }
+
+    .final-cta-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .final-cta-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .final-cta-benefit {
+      color: var(--white);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .final-cta-benefit::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--white);
+      color: var(--teal);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+      background: var(--navy-dark);
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-info {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-link {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ========================================
+       Sticky CTA (Mobile)
+       ======================================== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy-dark);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-cta.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-cta .btn {
+      min-width: auto;
+      flex: 1;
+      max-width: 200px;
+      padding: 12px 16px;
+      font-size: 0.875rem;
+    }
+
+    .sticky-cta .btn-micro {
+      display: none;
+    }
+
+    /* ========================================
+       Responsive Styles
+       ======================================== */
+    @media (max-width: 1024px) {
+      .point-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .point-content.reverse {
+        direction: ltr;
+      }
+
+      .point-image {
+        order: -1;
+      }
+
+      .company-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .testimonial-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .testimonial-image {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .graph-comparison {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .point-section {
+        padding: 60px 0;
+      }
+
+      .trust-badges {
+        gap: 16px;
+      }
+
+      .trust-badge {
+        padding: 12px 16px;
+      }
+
+      .trust-badge-value {
+        font-size: 2rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .problem-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tax-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info-table th {
+        width: 120px;
+        padding: 12px 16px;
+      }
+
+      .info-table td {
+        padding: 12px 16px;
+      }
+
+      .testimonial {
+        padding: 24px;
+      }
+
+      .flow-diagram {
+        flex-direction: column;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .fv-headline {
+        font-size: 1.75rem;
+      }
+
+      .point-num {
+        font-size: 3rem;
+      }
+
+      .point-headline {
+        font-size: 1.25rem;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+
+      .tax-highlight-value {
+        font-size: 3.5rem;
+      }
+    }
+
+    /* Hide sticky on desktop */
+    @media (min-width: 769px) {
+      .sticky-cta {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SEC_01: First View -->
+  <section class="fv seigaiha-pattern">
+    <div class="fv-content">
+      <p class="fv-pre-headline">売上拡大のため、輸出展開を考えている方へ</p>
+      <h1 class="fv-headline">本業の成長を<span class="marker">加速させる</span>副事業</h1>
+      <p class="fv-sub-headline">「世界7か国」への展開と「独自システム」で御社の事業拡大を支援します</p>
+
+      <div class="fv-features">
+        <p class="fv-feature">在庫リスクゼロの新しい物販システム</p>
+        <p class="fv-feature"><span class="marker">1日1時間</span>の効率運用で既存業務を圧迫しない</p>
+        <p class="fv-feature">導入企業の<span class="marker">98%が未経験</span>からスタート</p>
+      </div>
+
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <p class="trust-badge-label">創業</p>
+          <p class="trust-badge-value">11<span class="trust-badge-unit">年目</span></p>
+        </div>
+        <div class="trust-badge">
+          <p class="trust-badge-label">導入実績</p>
+          <p class="trust-badge-value">2,000<span class="trust-badge-unit">社以上</span></p>
+        </div>
+        <div class="trust-badge">
+          <p class="trust-badge-label">継続率</p>
+          <p class="trust-badge-value">95<span class="trust-badge-unit">%</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_01b: CTA Below FV -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-group">
+        <a href="#" class="btn btn-primary">
+          資料ダウンロード
+          <span class="btn-micro">無料！今すぐチェック</span>
+        </a>
+        <a href="#" class="btn btn-secondary" style="background: transparent; color: white; border-color: white;">
+          無料相談に申し込む
+          <span class="btn-micro">無理な営業は致しません！</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_02: Problem Section -->
+  <section class="problem-section seigaiha-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">今の経営状況の課題をNEXTの独自システムで解決いたします！</h2>
+      </div>
+
+      <div class="problem-cards">
+        <div class="problem-card">
+          <span class="problem-badge">課題 1</span>
+          <h3 class="problem-title">国内市場への限界と危機感</h3>
+          <p class="problem-body">今の事業一本に頼り切った経営体制に、将来的なリスクを感じている…</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-badge">課題 2</span>
+          <h3 class="problem-title">売上を上げたいがリスクは避けたい</h3>
+          <p class="problem-body">売上は欲しいが、多額の資金が必要なビジネスや施策はできない…</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-badge">課題 3</span>
+          <h3 class="problem-title">新規事業を立ち上げたいが人手が足りない</h3>
+          <p class="problem-body">新しい柱を作りたいが、既存社員は今の業務で手一杯…</p>
+        </div>
+        <div class="problem-card">
+          <span class="problem-badge">課題 4</span>
+          <h3 class="problem-title">海外展開したいがノウハウがない</h3>
+          <p class="problem-body">円安をチャンスに変えたいが、社内に輸出の知見がある人材がいない…</p>
+        </div>
+      </div>
+
+      <p class="problem-transition"><span class="marker">これらの課題をすべて解決</span></p>
+    </div>
+  </section>
+
+  <!-- SEC_03: 5 Points Intro -->
+  <section class="points-intro seigaiha-pattern">
+    <div class="container">
+      <p class="points-intro-sub">失敗するリスクを徹底的に排除した戦略</p>
+      <h2 class="points-intro-title">NEXTの独自システム5つの強み</h2>
+    </div>
+  </section>
+
+  <!-- SEC_04: Point 01 -->
+  <section class="point-section bg-white">
+    <div class="container">
+      <div class="point-content">
+        <div class="point-text">
+          <div class="point-number">
+            <span class="point-label">Point</span>
+            <span class="point-num">01</span>
+          </div>
+          <h3 class="point-headline">在庫リスクゼロの新しい物販システム</h3>
+          <p class="point-body">本来であれば在庫が必要な事業に対して、弊社システムを用いることにより、<span class="marker">在庫を持たない事業</span>で売上を上げることができます。
+          </p>
+        </div>
+        <div class="point-image">
+          <img src="images/point_01.jpg" alt="在庫リスクゼロの新しい物販システム">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_05: Point 02 -->
+  <section class="point-section bg-cream">
+    <div class="container">
+      <div class="point-content reverse">
+        <div class="point-text">
+          <div class="point-number">
+            <span class="point-label">Point</span>
+            <span class="point-num">02</span>
+          </div>
+          <h3 class="point-headline">副事業による売上の増加</h3>
+          <p class="point-body">副事業で第2の収益源を構築します。<span class="marker">人を雇わず収益の柱を構築</span>でき、本業の経営基盤を財務面から強力にバックアップします。
+          </p>
+        </div>
+        <div class="point-image">
+          <img src="images/point_02.jpg" alt="副事業による売上の増加">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_06: Point 03 -->
+  <section class="point-section bg-white">
+    <div class="container">
+      <div class="point-content">
+        <div class="point-text">
+          <div class="point-number">
+            <span class="point-label">Point</span>
+            <span class="point-num">03</span>
+          </div>
+          <h3 class="point-headline">銀行融資が受けやすい事業モデル</h3>
+          <p class="point-body">新たな売上で金融機関からの信用力を底上げされ、実際に副事業の売上をベースにした事業計画書で<span
+              class="marker">総額1億円以上の融資</span>を獲得できている法人様もいらっしゃいます。</p>
+        </div>
+        <div class="point-image">
+          <img src="images/point_03.jpg" alt="銀行融資が受けやすい事業モデル">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_07: Point 04 -->
+  <section class="point-section bg-cream">
+    <div class="container">
+      <div class="point-content reverse">
+        <div class="point-text">
+          <div class="point-number">
+            <span class="point-label">Point</span>
+            <span class="point-num">04</span>
+          </div>
+          <h3 class="point-headline">どんどん貯まるマイルやポイント</h3>
+          <p class="point-body">法人カードのマイルやポイントが自然と蓄積されます。出張経費の削減や、<span class="marker">従業員への福利厚生</span>として活用できます。</p>
+        </div>
+        <div class="point-image">
+          <img src="images/point_04.jpg" alt="どんどん貯まるマイルやポイント">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_08: Point 05 -->
+  <section class="point-section bg-white">
+    <div class="container">
+      <div class="point-content">
+        <div class="point-text">
+          <div class="point-number">
+            <span class="point-label">Point</span>
+            <span class="point-num">05</span>
+          </div>
+          <h3 class="point-headline">知識や経験・ノウハウ不要</h3>
+          <p class="point-body">導入企業様の<span class="marker">98%が未経験からのスタート</span>です。その中で、毎月数百万〜一千万単位での売上を積み重ねています。</p>
+        </div>
+        <div class="point-image">
+          <img src="images/point_05.jpg" alt="知識や経験・ノウハウ不要">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_09: Business Report -->
+  <section class="bizrepo-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">導入企業様の数々の売上実績</h2>
+      </div>
+
+      <div class="bizrepo-placeholder">
+        <p class="bizrepo-label">ビジレポ</p>
+        <p class="bizrepo-note">※動画またはレポートが入ります</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_10: Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">お客様の声</h2>
+      </div>
+
+      <!-- Testimonial 1: 酒井様 -->
+      <div class="testimonial">
+        <span class="testimonial-number">お客様の声 1</span>
+        <div class="testimonial-content">
+          <div class="testimonial-image">
+            <img src="images/testimonial_sakai.jpg" alt="酒井様">
+          </div>
+          <div class="testimonial-text">
+            <h3 class="testimonial-headline">銀行が認めた「事業の堅実性」。システムの売上実績だけで<span class="marker">「総額1億円以上」の融資</span>を獲得できました
+            </h3>
+
+            <div class="testimonial-detail">
+              <span class="testimonial-detail-label">【背景】</span>
+              <p class="testimonial-detail-text">当初は「手堅い第二の柱」としてスタート。システムによる自動化で順調に売上を伸ばす。</p>
+            </div>
+
+            <div class="testimonial-detail">
+              <span class="testimonial-detail-label">【転機】</span>
+              <p class="testimonial-detail-text">
+                メインバンクに本システムを活用した事業の決算書と事業計画を提示したところ、「大手企業から、これだけ安定したキャッシュフローがあるなら」と高い事業評価を獲得。</p>
+            </div>
+
+            <div class="testimonial-detail">
+              <span class="testimonial-detail-label">【結果】</span>
+              <p class="testimonial-detail-text">プロパー融資を含め、総額約1億円の資金調達に成功。その資金を元手に本業の拡大を実現されました。</p>
+            </div>
+
+            <p class="testimonial-author">— 本システム利用者 酒井様</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2: 光山様 -->
+      <div class="testimonial">
+        <span class="testimonial-number">お客様の声 2</span>
+        <div class="testimonial-content">
+          <div class="testimonial-image">
+            <img src="images/testimonial_mitsuyama.jpg" alt="光山様">
+          </div>
+          <div class="testimonial-text">
+            <h3 class="testimonial-headline"><span class="marker">「空き時間」を本業を伸ばすための「投資資金」に！</span></h3>
+
+            <blockquote class="testimonial-quote">
+              導入してよかったことは、本システムを活用して上がった売上を本業の方へ広告費を回すことができて、本業の売上を伸ばすことができて、相乗効果で事業を伸ばすことができています。
+            </blockquote>
+
+            <div class="testimonial-flow">
+              <div class="flow-diagram">
+                <div>
+                  <div class="flow-step">本システムの収益</div>
+                  <p class="flow-label">収益を広告費へ</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div>
+                  <div class="flow-step">本業</div>
+                  <p class="flow-label">収益を広告費や運転資金へ</p>
+                </div>
+                <span class="flow-arrow">⇄</span>
+                <div>
+                  <div class="flow-step" style="background: var(--gold); color: var(--navy);">相乗効果</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="testimonial-author">— 本システム利用者 光山様</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_11: Company Introduction -->
+  <section class="company-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">弊社、株式会社NEXTについて</h2>
+      </div>
+
+      <div class="company-content">
+        <div class="company-image">
+          <img src="images/company.jpg" alt="株式会社NEXT オフィス">
+        </div>
+        <div class="company-text">
+          <h3>世界7ヶ国へ、日本の価値を届ける「架け橋」</h3>
+          <p>「複雑さ」や「リスク」。これら海外進出における障壁をテクノロジーで取り払い、誰でも安全に世界へ販売できる仕組みを提供しています。</p>
+
+          <h3>輸出入ビジネスのパートナーとして選ばれて11年目</h3>
+          <p>私たちは2014年の設立以来、11年間にわたり「数多くの中小企業の物販事業」を裏側で支え続けてきました。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_12: Media -->
+  <section class="media-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">メディア実績</h2>
+      </div>
+
+      <div class="media-logos">
+        <div class="media-logo">ラヴィット！</div>
+        <div class="media-logo">カンニング竹山のイチバン研究所</div>
+        <div class="media-logo">ホリプレゼンツ 求人任三郎がいく！</div>
+        <div class="media-logo">モーニングこんぱす</div>
+        <div class="media-logo">はなわのシャカリキ！プラス</div>
+        <div class="media-logo">魚住りえのカイシャを伝えるテレビ</div>
+        <div class="media-logo">ナイツのこれイチ</div>
+        <div class="media-logo">NEXT VOICE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_13: System Features -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">NEXT独自システムの特徴</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-number">特徴 1</span>
+          <h3 class="feature-title">失敗のリスクを限りなくゼロにしたキャッシュフロー</h3>
+          <p class="feature-body">入金が確定してから経費を払う特殊フローを構築。資金繰りの心配なく事業を運営できます。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-number">特徴 2</span>
+          <h3 class="feature-title">場所や設備に縛られないでパソコン1台で完結</h3>
+          <p class="feature-body">専用のオフィスや倉庫、特別な設備は一切不要。いつでもどこでも作業が可能です。</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-number">特徴 3</span>
+          <h3 class="feature-title">既存業務を圧迫しない1日1時間の効率的な運用体制</h3>
+          <p class="feature-body">御社の担当者様が行うのは、日々の簡単なオンライン作業のみ。本業を圧迫しません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_14: Tax Benefits -->
+  <section class="tax-section">
+    <div class="container">
+      <div class="tax-content">
+        <p class="tax-pre-headline">〜節税効果と事業収益力を双方満たす節税対策も〜</p>
+        <h2 class="tax-headline">さらに、決算月でも間に合う<span class="marker">「100%費用計上」</span></h2>
+
+        <div class="tax-highlight-box">
+          <p class="tax-highlight-lead">数年の短期回収で</p>
+          <p class="tax-highlight-value">135%</p>
+          <p class="tax-highlight-suffix">超の回収率を実現</p>
+        </div>
+
+        <div class="tax-cards">
+          <div class="tax-card">
+            <h3 class="tax-card-title">法人税を圧縮</h3>
+            <p class="tax-card-body">最終利益の見込みが分かる決算月直前でも費用計上で税負担を大幅に軽減します。</p>
+          </div>
+          <div class="tax-card">
+            <h3 class="tax-card-title">数年で<span class="marker">150%以上</span>の回収率</h3>
+            <p class="tax-card-body">翌期以降に安定収益を回収し、メイン事業の成長投資の原資として活用可能。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_15: Graph Section -->
+  <section class="graph-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">節税・売上イメージ</h2>
+      </div>
+
+      <div class="graph-comparison">
+        <div class="graph-before">
+          <p class="graph-label">導入前</p>
+          <p class="graph-item">法人税のみ</p>
+        </div>
+        <div class="graph-after">
+          <p class="graph-label">導入後</p>
+          <p class="graph-item">法人税（圧縮）</p>
+          <p class="graph-item">システム導入費用計上</p>
+          <p class="graph-item highlight">月間売上 +1,000万円〜</p>
+        </div>
+      </div>
+
+      <p class="graph-note">※イメージ図です。実際の効果は企業様の状況により異なります。</p>
+    </div>
+  </section>
+
+  <!-- SEC_16: FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>スタッフは何人ほど必要でしょうか？</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              基本的に1名のご担当者様で運用可能です。1日1時間程度の作業で完結するため、既存業務と兼任いただけます。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>スタッフのスキマ時間でできますか？</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              はい、可能です。システムが自動化されているため、空いた時間に簡単なオンライン作業を行うだけで運用できます。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>物販未経験でも大丈夫ですか？</span>
+            <span class="faq-icon"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              はい、大丈夫です。導入企業様の98%が未経験からのスタートです。専任のサポートチームが導入から運用まで丁寧にサポートいたします。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEC_17: Company Info Table -->
+  <section class="info-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">企業情報</h2>
+      </div>
+
+      <table class="info-table">
+        <tr>
+          <th>会社名</th>
+          <td>株式会社NEXT</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>〒105-0012 東京都港区芝大門1-3-8 VORT芝大門II 5階・7階</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>平成27年10月27日</td>
+        </tr>
+        <tr>
+          <th>資本金</th>
+          <td>10,000,000円</td>
+        </tr>
+        <tr>
+          <th>代表取締役</th>
+          <td>鈴江 将人</td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><a href="tel:03-5244-9650">03-5244-9650</a></td>
+        </tr>
+        <tr>
+          <th>従業員数</th>
+          <td>60名（グループ・アルバイト含む）</td>
+        </tr>
+        <tr>
+          <th>事業内容</th>
+          <td>
+            物販事業<br>
+            倉庫・物流事業<br>
+            システム開発事業
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- SEC_18: Final CTA -->
+  <section class="final-cta seigaiha-pattern">
+    <div class="container">
+      <p class="final-cta-pre">まずは！</p>
+      <h2 class="final-cta-headline">無料相談へ</h2>
+
+      <div class="final-cta-benefits">
+        <p class="final-cta-benefit">輸出ビジネスの<span class="marker">メリット・デメリット</span>を包み隠さず公開</p>
+        <p class="final-cta-benefit">貴社の<span class="marker">収益シミュレーション</span>をご提示</p>
+        <p class="final-cta-benefit">NEXT独自システムの<span class="marker">導入方法や費用</span>を詳しく解説</p>
+      </div>
+
+      <div class="cta-group">
+        <a href="#" class="btn btn-primary">
+          資料ダウンロード
+          <span class="btn-micro">無料！今すぐチェック</span>
+        </a>
+        <a href="#" class="btn btn-primary-white">
+          無料相談に申し込む
+          <span class="btn-micro">無理な営業は致しません！</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-logo">NEXT</p>
+      <p class="footer-info">
+        株式会社NEXT（NEXT Inc.）<br>
+        〒105-0012 東京都港区芝大門1-3-8 VORT芝大門II 5階・7階
+      </p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">会社概要</a>
+        <a href="#" class="footer-link">プライバシーポリシー</a>
+      </div>
+      <p class="footer-copyright">©2026 株式会社NEXT All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA (Mobile) -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#" class="btn btn-primary">資料ダウンロード</a>
+    <a href="#" class="btn btn-secondary" style="background: transparent; color: white; border-color: white;">無料相談</a>
+  </div>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+        });
+
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Sticky CTA visibility
+    const stickyCta = document.getElementById('stickyCta');
+    const footer = document.querySelector('.footer');
+
+    function updateStickyCta() {
+      const scrollY = window.scrollY;
+      const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      if (scrollY > 300 && scrollY + windowHeight < footerTop) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', updateStickyCta);
+    updateStickyCta();
+  </script>
+
+</body>
+
+</html>
