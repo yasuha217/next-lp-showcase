@@ -302,7 +302,7 @@
        ======================================== */
     .trust-badges {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 32px;
       flex-wrap: wrap;
       margin-top: 32px;
@@ -460,9 +460,9 @@
       position: relative;
       z-index: 1;
       max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 80px 20px;
+      margin: 0;
+      text-align: left;
+      padding: 80px 20px 80px 60px;
     }
 
     .fv-pre-headline {
@@ -478,6 +478,7 @@
       color: var(--white);
       margin-bottom: 16px;
       line-height: 1.3;
+      white-space: nowrap;
     }
 
     .fv-sub-headline {
@@ -496,7 +497,7 @@
     .fv-feature {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 8px;
       color: var(--white);
       font-size: 1rem;
@@ -985,65 +986,333 @@
     }
 
     /* ========================================
-       SEC_15: Graph Section
+       SEC_15: Graph Section (4-Bar Paired Chart)
        ======================================== */
     .graph-section {
       background: var(--white);
       padding: 80px 0;
     }
 
-    .graph-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+    .graph-pairs {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    .graph-before,
-    .graph-after {
-      padding: 32px;
-      border-radius: 12px;
+    .graph-pair {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 24px;
+      padding: 0 24px;
+      position: relative;
     }
 
-    .graph-before {
-      background: var(--gray-100);
+    .graph-pair-divider {
+      width: 0;
+      border-left: 2px dashed var(--gray-300);
+      align-self: stretch;
+      flex-shrink: 0;
     }
 
-    .graph-after {
-      background: linear-gradient(135deg, rgba(212, 168, 75, 0.1) 0%, rgba(254, 246, 228, 1) 100%);
-      border: 2px solid var(--gold);
-    }
-
-    .graph-label {
+    .graph-pair-title {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 1.25rem;
       color: var(--navy);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .graph-pair-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .graph-pair-bars {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 24px;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+
+    .graph-bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      max-width: 120px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .graph-bar {
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      padding: 8px 4px;
+      transition: height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 0;
+      overflow: hidden;
+    }
+
+    .graph-bar-label {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-top: 10px;
       text-align: center;
     }
 
-    .graph-item {
-      padding: 8px 0;
-      font-size: 0.9375rem;
-      color: var(--gray-600);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Tax bars (navy) */
+    .bar-tax-before {
+      background: var(--navy);
     }
 
-    .graph-item:last-child {
-      border-bottom: none;
+    .bar-tax-before.animated {
+      height: 240px;
     }
 
-    .graph-item.highlight {
-      color: var(--crimson);
+    .bar-tax-after {
+      background: var(--navy);
+    }
+
+    .bar-tax-after.animated {
+      height: 120px;
+    }
+
+    /* Tax stacked bar: 導入後（点線で費用計上分を表示） */
+    .bar-tax-savings {
+      width: 100%;
+      border: 2px dashed var(--navy);
+      background: rgba(15, 0, 104, 0.06);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6875rem;
       font-weight: 700;
+      text-align: center;
+      padding: 6px 4px;
+      line-height: 1.3;
+      transition: height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 0;
+    }
+
+    .bar-tax-savings.animated {
+      height: 120px;
+    }
+
+    .bar-tax-remaining {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px 4px;
+      line-height: 1.3;
+      transition: height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 0;
+    }
+
+    .bar-tax-remaining.animated {
+      height: 120px;
+    }
+
+    /* Sales bars (orange) */
+    .bar-sales-before {
+      background: #E07828;
+    }
+
+    .bar-sales-before.animated {
+      height: 200px;
+    }
+
+    /* Stacked sales bar (after) */
+    .graph-bar-stacked {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+    }
+
+    .bar-sales-extra {
+      width: 100%;
+      background: var(--crimson);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      padding: 6px 4px;
+      line-height: 1.3;
+      transition: height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 0;
+    }
+
+    .bar-sales-extra.animated {
+      height: 80px;
+    }
+
+    .bar-sales-base {
+      width: 100%;
+      background: #E07828;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+      padding: 6px 4px;
+      line-height: 1.3;
+      transition: height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 0;
+    }
+
+    .bar-sales-base.animated {
+      height: 200px;
+    }
+
+    /* Arrow between bars (down arrow for tax) */
+    .graph-arrow-down {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 0.6s ease 0.8s;
+      pointer-events: none;
+    }
+
+    .graph-arrow-down.visible {
+      opacity: 1;
+    }
+
+    .graph-arrow-down-icon {
+      font-size: 2rem;
+      color: var(--crimson);
+      line-height: 1;
+    }
+
+    .graph-arrow-down-text {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--crimson);
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* Up arrow for sales */
+    .graph-arrow-up {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 0.6s ease 1s;
+      pointer-events: none;
+    }
+
+    .graph-arrow-up.visible {
+      opacity: 1;
+    }
+
+    .graph-arrow-up-icon {
+      font-size: 2rem;
+      color: var(--crimson);
+      line-height: 1;
+    }
+
+    .graph-arrow-up-text {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--crimson);
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* Diagonal growth arrow for sales */
+    .graph-arrow-diagonal {
+      position: absolute;
+      left: 5%;
+      bottom: 40%;
+      width: 90%;
+      height: 55%;
+      opacity: 0;
+      transition: opacity 0.6s ease 1s;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .graph-arrow-diagonal.visible {
+      opacity: 1;
+    }
+
+    /* Legend */
+    .graph-legend {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .graph-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8125rem;
+      color: var(--gray-600);
+    }
+
+    .graph-legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      flex-shrink: 0;
     }
 
     .graph-note {
       text-align: center;
       font-size: 0.75rem;
       color: var(--gray-600);
-      margin-top: 24px;
+      margin-top: 32px;
     }
 
     /* ========================================
@@ -1361,13 +1630,22 @@
         margin: 0 auto;
       }
 
-      .graph-comparison {
-        grid-template-columns: 1fr;
-        gap: 24px;
+      .graph-pair-bars {
+        height: 260px;
+        gap: 16px;
+      }
+
+      .graph-pair {
+        padding: 0 16px;
+        gap: 16px;
       }
     }
 
     @media (max-width: 768px) {
+      .fv-content {
+        padding: 80px 20px;
+      }
+
       .section {
         padding: 60px 0;
       }
@@ -1410,6 +1688,37 @@
         grid-template-columns: 1fr;
       }
 
+      .graph-pairs {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .graph-pair-divider {
+        display: none;
+      }
+
+      .graph-pair {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .graph-pair-bars {
+        height: 240px;
+      }
+
+      .graph-bar-col {
+        max-width: 140px;
+      }
+
+      .graph-legend {
+        gap: 12px;
+      }
+
+      .graph-legend-item {
+        font-size: 0.75rem;
+      }
+
       .info-table th {
         width: 120px;
         padding: 12px 16px;
@@ -1435,6 +1744,7 @@
     @media (max-width: 480px) {
       .fv-headline {
         font-size: 1.75rem;
+        white-space: normal;
       }
 
       .point-num {
@@ -1451,6 +1761,78 @@
 
       .tax-highlight-value {
         font-size: 3.5rem;
+      }
+
+      .graph-pair-bars {
+        height: 200px;
+        gap: 12px;
+      }
+
+      .graph-pair {
+        padding: 0 8px;
+        gap: 12px;
+      }
+
+      .graph-bar-col {
+        max-width: 100px;
+      }
+
+      .graph-bar {
+        font-size: 0.625rem;
+        padding: 4px 2px;
+      }
+
+      .bar-tax-before.animated {
+        height: 170px;
+      }
+
+      .bar-tax-after.animated {
+        height: 85px;
+      }
+
+      .bar-sales-before.animated {
+        height: 140px;
+      }
+
+      .bar-sales-extra.animated {
+        height: 56px;
+      }
+
+      .bar-sales-base.animated {
+        height: 140px;
+      }
+
+      .bar-tax-savings.animated {
+        height: 85px;
+      }
+
+      .bar-tax-remaining.animated {
+        height: 85px;
+      }
+
+      .bar-tax-savings {
+        font-size: 0.5625rem;
+      }
+
+      .bar-sales-extra,
+      .bar-sales-base {
+        font-size: 0.5625rem;
+      }
+
+      .graph-arrow-down-text {
+        font-size: 0.5625rem;
+      }
+
+      .graph-arrow-down-icon {
+        font-size: 1.5rem;
+      }
+
+      .graph-arrow-up-icon {
+        font-size: 2rem;
+      }
+
+      .graph-pair-title {
+        font-size: 0.875rem;
       }
     }
 
@@ -1839,23 +2221,78 @@
     </div>
   </section>
 
-  <!-- SEC_15: Graph Section -->
-  <section class="graph-section">
+  <!-- SEC_15: Graph Section (4-Bar Paired Chart) -->
+  <section class="graph-section" id="graphSection">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">節税・売上イメージ</h2>
       </div>
 
-      <div class="graph-comparison">
-        <div class="graph-before">
-          <p class="graph-label">導入前</p>
-          <p class="graph-item">法人税のみ</p>
+      <div class="graph-pairs">
+        <!-- Left Pair: 節税効果 -->
+        <div class="graph-pair">
+          <div class="graph-pair-inner">
+            <p class="graph-pair-title">節税効果</p>
+            <div class="graph-pair-bars">
+              <!-- 導入前: 高い法人税 -->
+              <div class="graph-bar-col">
+                <div class="graph-bar bar-tax-before" data-animate="bar">法人税</div>
+                <p class="graph-bar-label">導入前</p>
+              </div>
+
+              <!-- 導入後: 法人税圧縮（点線でシステム導入費用計上分を表示） -->
+              <div class="graph-bar-col">
+                <div class="graph-bar-stacked">
+                  <div class="bar-tax-savings" data-animate="bar">システム<br>導入費用計上</div>
+                  <div class="bar-tax-remaining" data-animate="bar">法人税</div>
+                </div>
+                <p class="graph-bar-label">導入後</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="graph-after">
-          <p class="graph-label">導入後</p>
-          <p class="graph-item">法人税（圧縮）</p>
-          <p class="graph-item">システム導入費用計上</p>
-          <p class="graph-item highlight">月間売上 +1,000万円〜</p>
+
+        <!-- Vertical dotted divider -->
+        <div class="graph-pair-divider"></div>
+
+        <!-- Right Pair: 売上効果 -->
+        <div class="graph-pair">
+          <div class="graph-pair-inner">
+            <p class="graph-pair-title">売上効果</p>
+            <div class="graph-pair-bars">
+              <!-- 導入前: 月間売上1000万円 -->
+              <div class="graph-bar-col">
+                <div class="graph-bar bar-sales-before" data-animate="bar">月間売上<br>1000万円</div>
+                <p class="graph-bar-label">導入前</p>
+              </div>
+
+              <!-- 導入後: 積み上げ棒（1000万+500万） -->
+              <div class="graph-bar-col">
+                <div class="graph-bar-stacked">
+                  <div class="bar-sales-extra" data-animate="bar">月間売上<br>+500万円</div>
+                  <div class="bar-sales-base" data-animate="bar">月間売上<br>1000万円</div>
+                </div>
+                <p class="graph-bar-label">導入後</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="graph-legend">
+        <div class="graph-legend-item">
+          <span class="graph-legend-color" style="background: var(--navy);"></span>
+          法人税
+        </div>
+        <div class="graph-legend-item">
+          <span class="graph-legend-color" style="background: #E07828;"></span>
+          月間売上
+        </div>
+        <div class="graph-legend-item">
+          <span class="graph-legend-color" style="background: var(--crimson);"></span>
+          追加売上
         </div>
       </div>
 
@@ -2023,6 +2460,38 @@
         }
       });
     });
+
+    // Graph scroll animation
+    const graphSection = document.getElementById('graphSection');
+    let graphAnimated = false;
+
+    function animateGraphs() {
+      if (graphAnimated || !graphSection) return;
+      const rect = graphSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight * 0.75) {
+        graphAnimated = true;
+        // Animate bar segments
+        const bars = graphSection.querySelectorAll('[data-animate="bar"]');
+        bars.forEach((bar, i) => {
+          setTimeout(() => {
+            bar.classList.add('animated');
+          }, i * 150);
+        });
+
+        // Show arrows after bars finish
+        const arrows = graphSection.querySelectorAll('[data-animate="arrow"]');
+        arrows.forEach(arrow => {
+          setTimeout(() => {
+            arrow.classList.add('visible');
+          }, bars.length * 150 + 200);
+        });
+      }
+    }
+
+    window.addEventListener('scroll', animateGraphs);
+    animateGraphs(); // Check on load
 
     // Sticky CTA visibility
     const stickyCta = document.getElementById('stickyCta');
